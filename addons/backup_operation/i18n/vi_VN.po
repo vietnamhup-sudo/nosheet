@@ -1,0 +1,213 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* backup_operation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260118\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-22 02:14+0000\n"
+"PO-Revision-Date: 2026-03-22 02:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: backup_operation
+#: model_terms:ir.ui.view,arch_db:backup_operation.view_backup_operation_form
+msgid "<strong>Note:</strong>"
+msgstr ""
+
+#. module: backup_operation
+#: model_terms:ir.ui.view,arch_db:backup_operation.view_backup_operation_form
+msgid ""
+"After enabling Drop Database backup you need to set backup retention count."
+msgstr ""
+
+#. module: backup_operation
+#: model:ir.model.fields,field_description:backup_operation.field_backup_operation__detail_ids
+msgid "Backup details"
+msgstr ""
+
+#. module: backup_operation
+#: model_terms:ir.ui.view,arch_db:backup_operation.view_backup_operation_form
+msgid "Backup Now"
+msgstr ""
+
+#. module: backup_operation
+#: model:ir.model,name:backup_operation.model_backup_operation
+#: model:ir.model.fields,field_description:backup_operation.field_backup_detail__backup_operation_id
+msgid "Backup Operation"
+msgstr "Sao lưu dữ liệu"
+
+#. module: backup_operation
+#: model_terms:ir.ui.view,arch_db:backup_operation.view_backup_operation_form
+msgid "Backup details"
+msgstr "Các sao lưu"
+
+#. module: backup_operation
+#: model:ir.actions.act_window,name:backup_operation.action_backup_operation
+#: model:ir.ui.menu,name:backup_operation.menu_backup_operation
+msgid "Backup operation"
+msgstr "Sao lưu dữ liệu"
+
+#. module: backup_operation
+#: model:ir.actions.server,name:backup_operation.ir_cron_backup_db_ir_actions_server
+msgid "Backup operation: Backup DB"
+msgstr "Sau lưu dữ liệu: Sao lưu DB"
+
+#. module: backup_operation
+#: model:ir.actions.server,name:backup_operation.ir_cron_cleanup_backups_ir_actions_server
+msgid "Backup operation: Cleanup old backups"
+msgstr "Sao lưu dữ liệu: Hoạt động giới hạn số lượng lưu trữ DB"
+
+#. module: backup_operation
+#: model:ir.model.fields,field_description:backup_operation.field_backup_operation__retention
+msgid "Backup retention count"
+msgstr "Số lượng lưu giữ"
+
+#. module: backup_operation
+#: model:ir.model.fields,field_description:backup_operation.field_backup_operation__nextcall
+msgid "Backup starting time"
+msgstr "TG bắt đầu"
+
+#. module: backup_operation
+#: model_terms:ir.ui.view,arch_db:backup_operation.view_backup_operation_form
+msgid "Backup time"
+msgstr "Vào lúc"
+
+#. module: backup_operation
+#: model:ir.model.fields.selection,name:backup_operation.selection__backup_operation__status__cancel
+#: model_terms:ir.ui.view,arch_db:backup_operation.view_backup_operation_form
+msgid "Cancel"
+msgstr ""
+
+#. module: backup_operation
+#: model_terms:ir.ui.view,arch_db:backup_operation.view_backup_operation_form
+msgid "Cleanup"
+msgstr ""
+
+#. module: backup_operation
+#: model:ir.model.fields,field_description:backup_operation.field_backup_operation__ref
+msgid "Code"
+msgstr ""
+
+#. module: backup_operation
+#: model:ir.model.fields.selection,name:backup_operation.selection__backup_operation__status__confirm
+#: model_terms:ir.ui.view,arch_db:backup_operation.view_backup_operation_form
+msgid "Confirm"
+msgstr ""
+
+#. module: backup_operation
+#: model:ir.model.fields,field_description:backup_operation.field_backup_detail__create_uid
+#: model:ir.model.fields,field_description:backup_operation.field_backup_operation__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: backup_operation
+#: model:ir.model.fields,field_description:backup_operation.field_backup_detail__create_date
+#: model:ir.model.fields,field_description:backup_operation.field_backup_operation__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: backup_operation
+#: model:ir.model.fields.selection,name:backup_operation.selection__backup_operation__interval_type__days
+msgid "Days"
+msgstr "Ngày"
+
+#. module: backup_operation
+#: model:ir.model.fields,field_description:backup_operation.field_backup_detail__display_name
+#: model:ir.model.fields,field_description:backup_operation.field_backup_operation__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: backup_operation
+#: model:ir.model.fields.selection,name:backup_operation.selection__backup_operation__status__draft
+msgid "Draft"
+msgstr ""
+
+#. module: backup_operation
+#: model_terms:ir.ui.view,arch_db:backup_operation.view_backup_operation_form
+msgid "Execute Every"
+msgstr "Thực hiện mỗi"
+
+#. module: backup_operation
+#: model:ir.model.fields.selection,name:backup_operation.selection__backup_operation__interval_type__hours
+msgid "Hours"
+msgstr "Giờ"
+
+#. module: backup_operation
+#: model:ir.model.fields,field_description:backup_operation.field_backup_detail__id
+#: model:ir.model.fields,field_description:backup_operation.field_backup_operation__id
+msgid "ID"
+msgstr ""
+
+#. module: backup_operation
+#: model:ir.model.fields,field_description:backup_operation.field_backup_operation__interval_number
+msgid "Interval Number"
+msgstr "Số thời gian"
+
+#. module: backup_operation
+#: model:ir.model.fields,field_description:backup_operation.field_backup_operation__interval_type
+msgid "Interval Type"
+msgstr "Loại thời gian"
+
+#. module: backup_operation
+#: model:ir.model.fields,field_description:backup_operation.field_backup_detail__write_uid
+#: model:ir.model.fields,field_description:backup_operation.field_backup_operation__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: backup_operation
+#: model:ir.model.fields,field_description:backup_operation.field_backup_detail__write_date
+#: model:ir.model.fields,field_description:backup_operation.field_backup_operation__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: backup_operation
+#: model:ir.model.fields.selection,name:backup_operation.selection__backup_operation__interval_type__minutes
+msgid "Minutes"
+msgstr "Phút"
+
+#. module: backup_operation
+#: model:ir.model.fields.selection,name:backup_operation.selection__backup_operation__interval_type__months
+msgid "Months"
+msgstr "Tháng"
+
+#. module: backup_operation
+#. odoo-python
+#: code:addons/backup_operation/models/backup_operation.py:0
+msgid "New"
+msgstr ""
+
+#. module: backup_operation
+#: model:ir.model.fields,field_description:backup_operation.field_backup_detail__path
+msgid "Path"
+msgstr ""
+
+#. module: backup_operation
+#: model:ir.model.fields.selection,name:backup_operation.selection__backup_operation__status__running
+msgid "Running"
+msgstr ""
+
+#. module: backup_operation
+#: model:ir.model.fields,field_description:backup_operation.field_backup_operation__status
+msgid "Status"
+msgstr ""
+
+#. module: backup_operation
+#: model_terms:ir.ui.view,arch_db:backup_operation.view_backup_operation_form
+msgid "The Backup Retention Count is the number of backups you wish to keep."
+msgstr ""
+
+#. module: backup_operation
+#: model:ir.model.fields.selection,name:backup_operation.selection__backup_operation__interval_type__weeks
+msgid "Weeks"
+msgstr "Tuần"
+
+#. module: backup_operation
+#: model:ir.model,name:backup_operation.model_backup_detail
+msgid "backup.detail"
+msgstr ""

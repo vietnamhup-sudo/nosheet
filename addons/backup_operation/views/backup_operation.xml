@@ -1,0 +1,143 @@
+<odoo>
+    <record id="view_backup_operation_list" model="ir.ui.view">
+        <field name="name">backup.operation.list</field>
+        <field name="model">backup.operation</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="nextcall"/>
+                <field name="status"/>
+                <field name="interval_number"/>
+                <field name="interval_type"/>
+                <field name="retention"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_backup_operation_form" model="ir.ui.view">
+        <field name="name">backup.operation.form</field>
+        <field name="model">backup.operation</field>
+        <field name="arch" type="xml">
+            <form>
+            <header>
+                <field name="status" widget="statusbar" options="{'clickable': 1}"/>
+                <button name="backup_db"
+                        type="object"
+                        string="Backup Now"
+                        invisible="status != 'confirm' and status != 'running'"
+                        class="btn-primary"/>
+                <button name="cleanup_old_backups"
+                        type="object"
+                        string="Cleanup"
+                        invisible="1"
+                        class="btn-primary"/>
+
+                <button name="confirm_status"
+                        type="object"
+                        string="Confirm"
+                        invisible="status != 'draft'"
+                        class="btn-primary"/>
+                <button name="cancel_status"
+                        type="object"
+                        string="Cancel"
+                        invisible="status != 'confirm' and status != 'running'"
+                        class="btn-secondary"/>
+            </header>
+
+            <sheet>
+                <div class="oe_title">
+                    <h1>
+                        <field name="ref" readonly="1"/>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <label for="interval_number" string="Execute Every"/>
+                        <div>
+                            <field name="interval_number" class="oe_inline" readonly="status != 'draft'"/>
+                            <field name="interval_type" class="oe_inline" readonly="status != 'draft'"/>
+                        </div>
+                        <field name="nextcall" readonly="status != 'draft'"/>
+                    </group>
+
+                    <group>
+                        <field name="retention" readonly="status != 'draft'"/>
+                        <div class="text-muted mb-3" name="retention_note" colspan="4">
+                            <strong>Note:</strong> 
+                            <ul>
+                                <li>After enabling Drop Database backup you need to set backup retention count.</li>
+                                <li>The Backup Retention Count is the number of backups you wish to keep.</li>
+                            </ul>
+                        </div>
+                    </group>
+                </group>
+
+                <notebook>
+                    <page string="Backup details">
+                        <field name="detail_ids">
+                            <list editable="bottom">
+                                <field name="create_date" string="Backup time"/>
+                                <field name="path"/>
+                            </list>
+                        </field>
+                    </page>
+                </notebook>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_backup_operation_search" model="ir.ui.view">
+        <field name="name">backup.operation.search</field>
+        <field name="model">backup.operation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nextcall"/>
+                <field name="status"/>
+                <field name="interval_number"/>
+                <field name="interval_type"/>
+                <field name="retention"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_backup_operation" model="ir.actions.act_window">
+        <field name="name">Backup operation</field>
+        <field name="res_model">backup.operation</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_backup_operation"
+              name="Backup operation"
+              action="action_backup_operation"
+              groups="base.group_no_one"
+              sequence="999"/>
+
+    <record id="sequence_backup_operation" model="ir.sequence">
+        <field name="name">Backup operation</field>
+        <field name="code">backup.operation</field>
+        <field name="prefix">PROCESS-</field>
+        <field name="padding">2</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="ir_cron_backup_db" model="ir.cron">
+        <field name="name">Backup operation: Backup DB</field>
+        <field name="model_id" ref="model_backup_operation"/>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="code">model.cron_backup()</field>
+        <field name="interval_number">15</field>
+        <field name="interval_type">minutes</field>
+    </record>
+
+    <record id="ir_cron_cleanup_backups" model="ir.cron">
+        <field name="name">Backup operation: Cleanup old backups</field>
+        <field name="model_id" ref="model_backup_operation"/>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="code">model.cron_cleanup_backups()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+    </record>
+
+</odoo>

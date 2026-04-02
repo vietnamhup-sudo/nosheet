@@ -1,0 +1,6 @@
+init-db
+backups
+__pycache__
+.DS_Store
+db
+logs

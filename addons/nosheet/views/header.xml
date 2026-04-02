@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Replace Odoo Header -->
+    <template id="custom_header" inherit_id="website.layout" name="Custom Header">
+
+        <xpath expr="//header" position="replace">
+
+<link type="text/css" rel="stylesheet" href="https://odoocdn.com/web/assets/1/b924c09/web.assets_frontend.min.css"/>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdowns = document.querySelectorAll("li.dropdown");
+
+    dropdowns.forEach(li => {
+        li.addEventListener("click", function (e) {
+            e.stopPropagation();
+
+            dropdowns.forEach(d => {
+                if (d !== this) d.classList.remove("show");
+            });
+
+            this.classList.toggle("show");
+        });
+    });
+});
+
+
+</script>
+<header id="top" data-anchor="true" data-name="Header" data-extra-items-toggle-aria-label="Nút thêm mục" class="o_no_autohide_menu o_affix_enabled o_header_fixed o_header_fade_out o_main_header o_not_editable o_top_fixed_element" style="transition-duration: 400ms; transition-property: opacity;">
+        
+        
+        
+        <div class="o_main_header_main top_menu" id="top_menu">
+                <a class="float-start o_logo" href="/"><span class="visually-hidden sr-only">Odoo</span></a>
+                <a href="#" role="button" class="o_mobile_menu_toggle d-inline-block d-lg-none">
+                    <i class="fa fa-bars" focusable="false"></i><span class="visually-hidden sr-only">Menu</span>
+                </a>
+                <ul class="o_header_buttons list-unstyled">
+            <li class="o_wsale_my_cart nav-item me-lg-0">
+                <a href="/shop/cart" class="nav-link px-1" aria-label="Shopping Cart">
+                    <i class="fa fa-shopping-cart"></i><sup class="my_cart_quantity rounded-pill bg-o-color-1 ms-1 py-1 px-2">0 + n</sup>
+                </a>
+            </li>
+            <li class="nav-item o_no_autohide_item">
+                <a href="/web/login" class="nav-link">Đăng nhập</a>
+            </li>
+        <li class="nav-item o_no_autohide_item"><a class="btn btn-primary btn-sm text-nowrap trial_link" href="/vi_VN/trial">Dùng thử miễn phí</a>
+        </li>
+                </ul>
+                <ul class="o_primary_nav">
+                    <li class="dropdown">
+                        <a href="#" aria-label="Ứng dụng: dùng menu thả xuống để chuyển đổi ứng dụng" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="true" class="dropdown-toggle x_wd_no_caret">Ứng dụng</a>
+                        <div class="start-0 dropdown-menu o_secondary_nav" data-bs-parent="o_primary_nav" data-bs-popper="static">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 o_finance_apps ">
+                                        <div class="o_nav_app_family">Tài chính</div>
+                                        <ul>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/accounting">Kế toán</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/invoicing">Hóa đơn</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/expenses">Chi phí</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/spreadsheet">Bảng tính (BI)</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/documents">Tài liệu</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/sign">Ký tên</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3 o_sale_apps ">
+                                        <div class="o_nav_app_family">Bán hàng</div>
+                                        <ul>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/crm">CRM</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/sales">Bán hàng</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/point-of-sale-shop">POS Cửa hàng</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/point-of-sale-restaurant">POS Nhà hàng</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/subscriptions">Đăng ký</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/rental">Cho thuê</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3 o_website_apps ">
+                                        <div class="o_nav_app_family">Trang web</div>
+                                        <ul>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/website">Trình tạo trang web</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/ecommerce">Thương mại điện tử</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/blog">Blog</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/forum">Diễn đàn</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/live-chat">Trò chuyện trực tiếp</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/elearning">Học trực tuyến</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3 o_inventory_apps ">
+                                        <div class="o_nav_app_family">Chuỗi cung ứng</div>
+                                        <ul>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/inventory">Tồn kho</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/manufacturing">Sản xuất</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/plm">PLM</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/purchase">Mua hàng</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/maintenance">Bảo dưỡng</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/quality">Chất lượng</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 o_hr_apps ">
+                                        <div class="o_nav_app_family">Nhân sự</div>
+                                        <ul>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/employees">Nhân viên</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/recruitment">Tuyển dụng</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/time-off">Ngày nghỉ</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/appraisals">Đánh giá</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/referrals">Giới thiệu</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/fleet">Đội xe</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3 o_marketing_apps ">
+                                        <div class="o_nav_app_family">Marketing</div>
+                                        <ul>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/social-marketing">Marketing trên MXH</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/email-marketing">Marketing qua email</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/sms-marketing">Marketing qua SMS</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/events">Sự kiện</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/marketing-automation">Tự động hóa Marketing</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/surveys">Khảo sát</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3 o_services_apps ">
+                                        <div class="o_nav_app_family">Dịch vụ</div>
+                                        <ul>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/project">Dự án</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/timesheet">Bảng chấm công</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/field-service">Dịch vụ hiện trường</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/helpdesk">Hỗ trợ</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/planning">Kế hoạch</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/appointments">Lịch hẹn</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3 o_productivity_apps ">
+                                        <div class="o_nav_app_family">Năng suất</div>
+                                        <ul>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/discuss">Thảo luận</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/approvals">Phê duyệt</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/iot">IoT</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/voip">VoIP</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/knowledge">Kiến thức</a></li>
+                                            <li><a class="dropdown-item" href="/vi_VN/app/whatsapp">WhatsApp</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="o_store_link d-md-flex justify-content-md-center">
+                                <a class="mx-md-3 px-3 dropdown-item" href="https://apps.odoo.com/apps/modules"><i class="fa fa-cube fa-fw me-2"></i>Ứng dụng của bên thứ ba</a>
+                                <a class="mx-md-3 px-3 dropdown-item" href="/vi_VN/app/studio"><i class="fa fa-pencil fa-fw me-2"></i>Studio Odoo</a>
+                                <a href="https://www.odoo.sh" class="mx-md-3 px-3"><i class="fa fa-cloud fa-fw me-2"></i>Nền tảng Đám mây Odoo</a>
+                            </span>
+                        </div>
+                    </li>
+                        
+                        <li class="dropdown">
+                            <a href="#" aria-label="Ngành: sử dụng menu thả xuống để tìm đường dẫn tới các trang ngành liên quan" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" class="dropdown-toggle x_wd_no_caret">Ngành</a>
+                            <div class="start-0 dropdown-menu o_secondary_nav" data-bs-parent="o_primary_nav">
+                                <div class="container pb-4">
+                                    <div class="row">
+                                        <div class="col-lg-3 o_retail_industries ">
+                                            <div class="o_nav_app_family">Bán lẻ</div>
+                                            <ul>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/book-store">Nhà sách</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/clothing-store">Cửa hàng quần áo</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/furniture-store">Cửa hàng nội thất</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/grocery-store">Cửa hàng tạp hóa</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/hardware-store">Cửa hàng đồ kim khí</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/toy-store">Cửa hàng đồ chơi</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-3 o_food_industries ">
+                                            <div class="o_nav_app_family">Ẩm thực &amp; Dịch vụ lưu trú</div>
+                                            <ul>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/bar-pub">Bar và quán rượu</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/fine-dining-restaurant">Nhà hàng</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/fast-food">Đồ ăn nhanh</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/guest-house">Guest house</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/beverage-distributor">Nhà phân phối đồ uống</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/hotel">Khách sạn</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-3 o_real_estate_industries ">
+                                            <div class="o_nav_app_family">Bất động sản</div>
+                                            <ul>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/real-estate-agency">Công ty môi giới bất động sản</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/architecture-firm">Công ty kiến trúc</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/construction">Xây dựng</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/estate-management">Quản lý bất động sản</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/gardening">Làm vườn</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/property-owner-association">Hiệp hội chủ sở hữu bất động sản</a></li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-3 o_consulting_industries ">
+                                            <div class="o_nav_app_family">Tư vấn</div>
+                                            <ul>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/accounting-firm">Công ty kế toán </a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/odoo-partner">Đối tác Odoo</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/marketing-agency">Công ty marketing</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/law-firm">Công ty luật</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/talent-acquisition">Tuyển dụng</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/audit-certification">Thanh tra &amp; chứng nhận</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 o_manufacturing_industries ">
+                                            <div class="o_nav_app_family">Sản xuất</div>
+                                            <ul>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/textile-manufacturing">Dệt may</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/metal-fabricator">Kim loại</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/furniture-store">Nội thất</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/food-distribution">Ẩm thực</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/micro-brewery">Nhà máy bia</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/corporate-gifts">Quà tặng doanh nghiệp</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-3 o_health_industries ">
+                                            <div class="o_nav_app_family">Sức khoẻ &amp; fitness</div>
+                                            <ul>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/sports-club">CLB thể thao</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/eyewear-store">Cửa hàng kính mắt</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/fitness-center">Trung tâm fitness</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/wellness-practitioners">Chuyên gia chăm sóc sức khỏe</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/pharmacy">Hiệu thuốc</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/hair-salon">Tiệm làm tóc</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-3 o_trades_industries ">
+                                            <div class="o_nav_app_family">Thương mại</div>
+                                            <ul>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/handyman">Dịch vụ sửa chữa</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/it-hardware-support">Phần cứng CNTT &amp; Hỗ trợ</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/solar-energy">Hệ thống năng lượng mặt trời</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/shoe-maker">Công ty sản xuất giày</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/cleaning-services">Dịch vụ vệ sinh</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/hvac-services">Dịch vụ HVAC</a></li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-3 o_others_industries ">
+                                            <div class="o_nav_app_family">Khác</div>
+                                            <ul>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/nonprofit-organization">Tổ chức phi lợi nhuận</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/environmental-agency">Cơ quan môi trường</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/billboard-rental">Cho thuê biển quảng cáo</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/photography">Nhiếp ảnh</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/bike-leasing">Cho thuê xe đạp</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/industries/software-reseller">Đại lý phần mềm</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <span class="o_store_link d-md-flex justify-content-center text-center">
+                                    <a class="px-3 fs-6" href="/vi_VN/all-industries">Xem tất cả ngành<img src="https://odoocdn.com/openerp_website/static/src/img/icons/white_arrow_right.svg" height="30px" class="d-inline ms-3" alt="" loading="lazy" style=""/></a>
+                                </span>
+                            </div>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="#" aria-label="Cộng đồng: sử dụng menu thả xuống để tìm đường dẫn tới những trang cộng đồng liên quan" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" class="dropdown-toggle x_wd_no_caret">Cộng đồng</a>
+                            <div class="start-0 dropdown-menu o_secondary_nav pb-0" data-bs-parent="o_primary_nav">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-3 o_learn_com">
+                                            <div class="o_nav_com_family">Học tập</div>
+                                            <ul>
+                                                <li><a class="dropdown-item" href="/vi_VN/slides/all/tag/odoo-tutorials-9">Khóa học</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/page/docs">Tài liệu</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/slides/all?slide_category=certification">Chứng chỉ</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/training-events">Đào tạo</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/blog">Blog</a></li>
+                                                <li><a class="dropdown-item" href="https://www.odoo.fm" target="_blank">Podcast</a></li>
+                                            </ul>
+                                            <div class="o_nav_com_family mt-lg-5">Thúc đẩy đào tạo</div>
+                                            <ul>
+                                                <li><a class="dropdown-item" href="/vi_VN/education/program">Chương trình đào tạo</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/education/scale-up-business-game">Trò chơi kinh doanh Scale Up!</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/education/visit-odoo">Tham quan Odoo</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-3 o_software_com">
+                                            <div class="o_nav_com_family">Nhận phần mềm</div>
+                                            <ul>
+                                                <li><a class="dropdown-item" href="/vi_VN/page/download">Tải xuống</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/page/editions">So sánh các phiên bản</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/page/release-notes">Phiên bản</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-3 o_collab_com">
+                                            <div class="o_nav_com_family">Hợp tác</div>
+                                            <ul>
+                                                <li><a class="dropdown-item" href="https://github.com/odoo">Github</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/forum/help-1">Diễn đàn</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/events">Sự kiện</a></li>
+                                                <li><a class="dropdown-item" href="https://github.com/odoo/odoo/wiki/Translations">Dịch thuật</a></li>
+                                            </ul>
+                                            <ul class="pt-lg-3">
+                                                <li><a class="dropdown-item" href="/vi_VN/become-a-partner">Trở thành đối tác</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/services/partners">Dịch vụ dành cho Đối tác</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/accounting-firms/register">Đăng ký công ty kế toán của bạn</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-3 o_services_com">
+                                            <div class="o_nav_com_family">Nhận dịch vụ</div>
+                                            <ul>
+                                                <li><a class="dropdown-item" href="/vi_VN/partners">Tìm đối tác</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/accounting-firms">Tìm kế toán</a></li>
+                                            </ul>
+                                            <ul class="pt-lg-3">
+                                                <li><div class="o_schedule_demo ">
+                    
+                        <a target="_blank" href="/vi_VN/appointment?filter_appointment_type_ids=%255B217%252C%2B10353%252C%2B10628%255D" class="dropdown-item text-start">
+                            Gặp chuyên gia hỗ trợ
+                        </a>
+                    
+            </div>
+                                                </li>
+                                                <li><a class="dropdown-item" href="/vi_VN/pricing-packs">Dịch vụ Triển khai</a></li>
+                                                <li><a class="dropdown-item" href="/vi_VN/blog/customer-reviews-6">Khách hàng tham khảo</a></li>
+                                            </ul>
+                                            <ul class="pt-lg-3">
+                                                <li><a class="dropdown-item" href="/vi_VN/help">Hỗ trợ</a></li>
+                                                <li><a class="dropdown-item" href="//upgrade.odoo.com">Nâng cấp</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="o_header_social">
+                                    <div class="social_icons">
+                                        <a target="_blank" href="https://github.com/odoo/odoo" class="d-inline dropdown-item"><i class="fa fa-fw fa-github" focusable="false"></i><span class="visually-hidden sr-only">Github</span></a>
+                                        <a target="_blank" href="https://www.youtube.com/channel/UCkQPikELWZFLgQNHd73jkdg" class="d-inline dropdown-item"><i class="fa fa-fw fa-youtube-play" focusable="false"></i><span class="visually-hidden sr-only">Youtube</span></a>
+                                        <a target="_blank" href="https://twitter.com/Odoo" class="d-inline dropdown-item"><i class="fa fa-fw fa-twitter" focusable="false"></i><span class="visually-hidden sr-only">Twitter</span></a>
+                                        <a target="_blank" href="https://www.linkedin.com/company/odoo" class="d-inline dropdown-item"><i class="fa fa-fw fa-linkedin" focusable="false"></i><span class="visually-hidden sr-only">Linkedin</span></a>
+                                        <a target="_blank" href="https://www.instagram.com/odoo.official" class="d-inline dropdown-item"><i class="fa fa-fw fa-instagram" focusable="false"></i><span class="visually-hidden sr-only">Instagram</span></a>
+                                        <a target="_blank" href="https://www.facebook.com/odoo" class="d-inline dropdown-item"><i class="fa fa-fw fa-facebook" focusable="false"></i><span class="visually-hidden sr-only">Facebook</span></a>
+                                        <a target="_blank" href="https://www.tiktok.com/@odoo" class="d-inline dropdown-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" style="width: 15px; margin-top: -3px;" class="custom-tiktok" viewBox="0 0 2859 3333" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"><path d="M2081 0c55 473 319 755 778 785v532c-266 26-499-61-770-225v995c0 1264-1378 1659-1932 753-356-583-138-1606 1004-1647v561c-87 14-180 36-265 65-254 86-398 247-358 531 77 544 1075 705 992-358V1h551z"></path></svg>
+                                        </a>
+                                        <a target="_blank" href="//podcast.odoo.com" class="d-inline dropdown-item"><i class="fa fa-fw fa-spotify" focusable="false"></i><span class="visually-hidden sr-only">Spotify</span></a>
+                                    </div>
+                                    <div>
+                                        <a class="d-inline dropdown-item" href="tel:+3222903490"><i class="fa fa-phone text-muted me-1"></i>+32 2 290 34 90</a><div class="o_schedule_demo w-auto">
+                    
+                        <a target="_blank" href="/vi_VN/appointment?filter_appointment_type_ids=%255B217%252C%2B10353%252C%2B10628%255D" class="dropdown-item d-inline text-start">
+                            <i class="fa fa-calendar text-muted"></i>Nhận một buổi demo
+                        </a>
+                    
+            </div>
+                                    </div>
+                                </span>
+                            </div>
+                        </li>
+                        <li><a href="/shop">Bảng giá</a></li>
+                        <li><a href="/contactus">Trợ giúp</a></li>
+
+
+                </ul>
+            </div>
+    </header>
+
+        </xpath>
+
+    </template>
+
+</odoo>

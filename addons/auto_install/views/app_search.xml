@@ -1,0 +1,29 @@
+<odoo>
+    <record id="view_module_filter_inherit_not_odoo" model="ir.ui.view">
+        <field name="name">view.module.filter.inherit.not.odoo</field>
+        <field name="model">ir.module.module</field>
+        <field name="inherit_id" ref="base.view_module_filter"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//search" position="inside">
+            <group>
+                <filter name="odoo_tobuy"
+                    string="Odoo Enterprise"
+                    domain="[('to_buy', '=', True)]"/>
+                <filter name="odoo_not_tobuy"
+                    string="Odoo not Enterprise"
+                    domain="[('to_buy', '=', False)]"/>
+            </group>
+            <filter name="not_odoo_author"
+                string="Not Odoo"
+                domain="[('author', '!=', 'Odoo S.A.')]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="base.open_module_tree" model="ir.actions.act_window">
+        <field name="context">
+            {'search_default_app': 1, 'search_default_odoo_not_tobuy': 1, 'search_default_not_odoo_author': 1}
+        </field>
+    </record>
+</odoo>

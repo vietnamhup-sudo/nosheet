@@ -1,0 +1,292 @@
+<odoo>
+    <record id="view_nosheet_ir_model_form" model="ir.ui.view">
+        <field name="name">nosheet.ir.model.form</field>
+        <field name="model">ir.model</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <form string="Model Description" duplicate="0">
+                <header><!-- used for override --></header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                                name="action_view_menus"
+                                type="object"
+                                icon="fa-bars">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="menu_count"/>
+                                </span>
+                                <span class="o_stat_text">Menus</span>
+                            </div>
+                        </button>
+                        <button class="oe_stat_button"
+                                name="action_view_views"
+                                type="object"
+                                icon="fa-eye">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="view_count"/>
+                                </span>
+                                <span class="o_stat_text">Views</span>
+                            </div>
+                        </button>
+                        <button class="oe_stat_button"
+                                name="action_view_server_actions"
+                                type="object"
+                                icon="fa-bolt">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="server_action_count"/>
+                                </span>
+                                <span class="o_stat_text">Server Actions</span>
+                            </div>
+                        </button>
+                        <button class="oe_stat_button"
+                                name="action_view_base_automation"
+                                type="object"
+                                icon="fa-cogs">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="base_automation_count"/>
+                                </span>
+                                <span class="o_stat_text">Automations</span>
+                            </div>
+                        </button>
+                        <button class="oe_stat_button"
+                                name="action_view_scheduled_actions"
+                                type="object"
+                                icon="fa-clock-o">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="scheduled_action_count"/>
+                                </span>
+                                <span class="o_stat_text">Scheduled Actions</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="from_app_id"/>
+                        </group>
+                        <group>
+                            <field name="is_filter_manual"/>
+                            <field name="transient"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Fields" name="fields">
+                            <field name="field_id">
+                                <list string="Fields Description" editable="bottom" decoration-success="ttype in ['many2one', 'one2many', 'many2many']" decoration-bf="ttype in ['one2many']" decoration-it="ttype in ['many2many']">
+                                    <field name="sequence" widget='handle'/>
+                                    <field name="name" optional="hide"/>
+                                    <field name="field_description"/>
+                                    <field name="ttype2"/>
+                                    <field name="ttype" column_invisible="1"/>
+
+                                    <field name="related" optional="hide" string="Related"/>
+                                    <field name="depends" optional="hide"/>
+                                    <field name="compute" optional="show"/>
+
+                                    <field name="selected_model_id" optional="show" context="{'create_views_menu_access': True, 'default_from_app_id': from_app_id}" invisible="ttype not in ['many2one', 'one2many', 'many2many']" readonly="ttype not in ['many2one', 'one2many', 'many2many']" required="ttype in ['many2one', 'one2many', 'many2many']"/>
+                                    <field name="selected_field_id" optional="hide" invisible="ttype != 'one2many'" readonly="ttype != 'one2many'" required="ttype == 'one2many'"/>
+
+                                    <field name="on_delete" optional="hide" groups="base.group_no_one" invisible="ttype != 'many2one'" readonly="ttype != 'many2one'"/>
+                                    <field name="domain" optional="hide" groups="base.group_no_one" invisible="ttype not in ['many2one', 'one2many', 'many2many']" readonly="ttype not in ['many2one', 'one2many', 'many2many']"/>
+
+                                    <field name="required" optional="hide"/>
+                                    <field name="readonly" optional="hide"/>
+                                    <field name="index" groups="base.group_no_one" optional="hide"/>
+                                    <field name="store" groups="base.group_no_one" optional="hide"/>
+
+                                    <field name="from_app_id" column_invisible="1"/>
+                                    <field name="relation" column_invisible="1"/>
+                                    <field name="relation_field" column_invisible="1"/>
+                                    <field name="relation_table" column_invisible="1"/>
+                                    <field name="column1" column_invisible="1"/>
+                                    <field name="column2" column_invisible="1"/>
+                                </list>
+                            </field>
+                            <button groups="base.group_no_one" icon="fa-align-justify" name="2" string="Create a Menu" type="action" target="new"/>
+                        </page>
+                        <page string="Access Rights" name="access_rights">
+                            <field name="access_ids">
+                                <list string="Access Rights" editable="top" decoration-warning="not group_id and                                                          (perm_read or perm_write or                                                           perm_create or perm_unlink)">
+                                    <field name="name"/>
+                                    <field name="group_id"/>
+                                    <field name="perm_read"/>
+                                    <field name="perm_write"/>
+                                    <field name="perm_create"/>
+                                    <field name="perm_unlink"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Record Rules" name="record_rules">
+                            <field name="rule_ids">
+                                <list string="Record Rules" editable="top" decoration-info="not groups">
+                                    <field name="name"/>
+                                    <field name="groups" widget="many2many_tags" options="{'no_create':True}"/>
+                                    <field name="domain_force"/>
+                                    <field name="perm_read"/>
+                                    <field name="perm_write"/>
+                                    <field name="perm_create"/>
+                                    <field name="perm_unlink"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes" groups="base.group_no_one">
+                            <field name="info"/>
+                        </page>
+                        <page string="Views" name="views" groups="base.group_no_one">
+                            <field name="view_ids"/>
+                        </page>
+                        <page string="Meta" name="meta">
+                            <group>
+                                <field name="model" readonly="id"/>
+                                <field name="order"/>
+                                <field name="state" readonly="1" groups="base.group_no_one"/>
+                                <field name="modules" groups="base.group_no_one"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_nosheet_ir_model_fields_form" model="ir.ui.view">
+        <field name="name">nosheet.ir.model.fields.form</field>
+        <field name="model">ir.model.fields</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+        <form string="Fields Description">
+            <sheet>
+                <group>
+                    <group>
+                        <field name="field_description"/>
+                        <field name="name"/>
+                    </group>
+                    <group>
+                        <field name="ttype" invisible="1"/>
+                        <field name="ttype2"/>
+                        <field name="help"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page name="meta" string="Meta">
+                        <group>
+                            <group>
+                                <field name="state" groups="base.group_no_one"/>
+                                <field name="modules" groups="base.group_no_one"/>
+                            </group>
+                            <group>
+                                <field name="selected_model_id" invisible="ttype not in ['many2one', 'one2many', 'many2many']" readonly="ttype not in ['many2one', 'one2many', 'many2many']" required="ttype in ['many2one', 'one2many', 'many2many']"/>
+                                <field name="selected_field_id" invisible="ttype != 'one2many'" readonly="ttype != 'one2many'" required="ttype == 'one2many'"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page name="base" string="Properties">
+                        <group>
+                            <group>
+                                <field name="required"/>
+                                <field name="readonly"/>
+                                <field name="invisible"/>
+                                <field name="approval_field"/>
+                                <field name="tracking"/>
+                                <field name="store" groups="base.group_no_one"/>
+                                <field name="index" groups="base.group_no_one"/>
+                                <field name="copied" groups="base.group_no_one"/>
+                            </group>
+                            <group>
+                                <field name="translate" invisible="ttype not in ['char', 'text', 'html']" readonly="ttype not in ['char', 'text', 'html']"/>
+                                <field name="size" groups="base.group_no_one" invisible="ttype not in ['char', 'reference']" readonly="ttype not in ['char', 'reference']"/>
+                                <field name="relation" invisible="ttype not in ['many2one', 'one2many', 'many2many']" readonly="ttype not in ['many2one', 'one2many', 'many2many']" required="ttype in ['many2one', 'one2many', 'many2many']"/>
+                                <field name="on_delete" groups="base.group_no_one" invisible="ttype != 'many2one'" readonly="ttype != 'many2one'"/>
+                                <field name="relation_field" invisible="ttype != 'one2many'" readonly="ttype != 'one2many'" required="ttype == 'one2many'"/>
+                                <field name="relation_table" groups="base.group_no_one" invisible="ttype != 'many2many' or state != 'manual'" readonly="ttype != 'many2many' or state != 'manual'"/>
+                                <field name="column1" groups="base.group_no_one" invisible="ttype != 'many2many' or state != 'manual'" readonly="ttype != 'many2many' or state != 'manual'"/>
+                                <field name="column2" groups="base.group_no_one" invisible="ttype != 'many2many' or state != 'manual'" readonly="ttype != 'many2many' or state != 'manual'"/>
+                                <field name="domain" groups="base.group_no_one" invisible="ttype not in ['many2one', 'one2many', 'many2many']" readonly="ttype not in ['many2one', 'one2many', 'many2many']"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page name="compute" string="Compute" groups="base.group_no_one">
+                        <group>
+                            <field name="related"/>
+                            <field name="depends" required="compute not in [False, '']"/>
+                            <field name="compute" widget="code" options="{'mode': 'python'}"/>
+                        </group>
+                        <div>
+                            <h3>How to define a computed field</h3>
+                            <p>Computed fields are defined with the fields
+                            <strong>Dependencies</strong> and <strong>Compute</strong>.</p>
+                            <p>The field <strong>Dependencies</strong> lists the fields that
+                            the current field depends on. It is a comma-separated list of
+                            field names, like <code>name, size</code>. You can also refer to
+                            fields accessible through other relational fields, for instance
+                            <code>partner_id.company_id.name</code>.</p>
+                            <p>The field <strong>Compute</strong> is the Python code to
+                            compute the value of the field on a set of records. The value of
+                            the field must be assigned to each record with a dictionary-like
+                            assignment.</p>
+                            <pre>
+    for record in self:
+    record['size'] = len(record.name)
+    </pre>
+                            <p>The only predefined variables are</p>
+                            <ul>
+                                <li><code>self</code> (the set of records to compute)</li>
+                                <li><code>datetime</code> (Python module)</li>
+                                <li><code>dateutil</code> (Python module)</li>
+                                <li><code>time</code> (Python module)</li>
+
+                                <li><code>SUM</code> Excel function</li>
+                                <li><code>MINUS</code> Excel function</li>
+                                <li><code>PRODUCT</code> Excel function</li>
+                                <li><code>SUM_COL</code> It calculates the sum of a field from related record.</li>
+                            </ul>
+                            <p>Other features are accessible through <code>self</code>, like
+                            <code>self.env</code>, etc.</p>
+                        </div>
+                    </page>
+                    <page name="groups" string="Access Rights">
+                        <field name="groups"/>
+                    </page>
+                    <page string="Selection Options" name="Selection Options" 
+                        invisible="ttype not in ['selection', 'reference']" 
+                        readonly="ttype not in ['selection', 'reference']"
+                    >
+                        <field name="selection_ids">
+                            <list editable="bottom">
+                                <field name="sequence" widget="handle"/>
+                                <field name="selected_model_id" column_invisible="parent.ttype == 'selection'"/>
+                                <field name="value" column_invisible="parent.ttype == 'reference'"/>
+                                <field name="name"/>
+                            </list>
+                        </field>
+                    </page>
+                </notebook>
+            </sheet>
+            <chatter/>
+        </form>
+        </field>
+    </record>
+
+    <record id="base.action_model_model" model="ir.actions.act_window">
+        <field name="context">{'create_views_menu_access': True}</field>
+    </record>
+
+    <record id="nosheet_model_action_update_view" model="ir.actions.server">
+        <field name="name">Update Views</field>
+        <field name="model_id" ref="base.model_ir_model"/>
+        <field name="binding_model_id" ref="base.model_ir_model" />
+        <field name="state">code</field>
+        <field name="code">
+            for r in records:
+                r.update_views()
+        </field>
+    </record>
+
+</odoo>

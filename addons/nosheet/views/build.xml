@@ -1,0 +1,106 @@
+<odoo>
+    <record id="view_nosheet_build_form" model="ir.ui.view">
+        <field name="name">nosheet.build.form</field>
+        <field name="model">nosheet.build</field>
+        <field name="arch" type="xml">
+            <form string="Điền tên mô hình">
+            <sheet>
+                <group invisible="stage != '1'">
+                    <field name="mode"/>
+                    <field name="action_type"/>
+                </group>
+
+                <group invisible="stage != '2'">
+                    <field name="model_description"/>
+                </group>
+
+                <group invisible="stage != '3'">
+                    <field name="custom_app_id"/>
+                </group>
+
+                <group invisible="stage != '4'">
+                    <field name="model_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                </group>
+
+                <group invisible="1">
+                    <field name="stage"/>
+                    <field name="model_name"/>
+                </group>
+
+                <footer invisible="stage != '1'">
+                    <button string="Next"
+                            type="object"
+                            name="confirm_stage_1"
+                            class="btn-primary"/>
+                    <button string="Cancel"
+                            special="cancel"
+                            class="btn-secondary"/>
+                </footer>
+
+                <footer invisible="stage != '2'">
+                    <button string="Next"
+                            type="object"
+                            name="confirm_stage_2"
+                            class="btn-primary"/>
+                    <button string="Previous"
+                            type="object"
+                            name="previous"
+                            class="btn-secondary"/>
+                </footer>
+
+                <footer invisible="stage != '3'">
+                    <button string="Confirm"
+                            type="object"
+                            name="confirm_stage_3"
+                            class="btn-primary"/>
+                    <button string="Previous"
+                            type="object"
+                            name="previous"
+                            class="btn-secondary"/>
+                </footer>
+
+                <footer invisible="stage != '4'">
+                    <button string="Confirm"
+                            type="object"
+                            name="confirm_stage_4"
+                            class="btn-primary"/>
+                    <button string="Previous"
+                            type="object"
+                            name="previous"
+                            class="btn-secondary"/>
+                </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_nosheet_build" model="ir.actions.act_window">
+        <field name="name">Điền tên mô hình</field>
+        <field name="res_model">nosheet.build</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="nosheet_action_update_view" model="ir.actions.server">
+        <field name="name">Update View</field>
+        <field name="model_id" ref="base.model_ir_ui_view"/>
+        <field name="binding_model_id" ref="base.model_ir_ui_view" />
+        <field name="state">code</field>
+        <field name="code">
+            for r in records:
+                r.update_view()
+        </field>
+    </record>
+
+    <record id="nosheet_ir_fields_action_update_view" model="ir.actions.server">
+        <field name="name">Update View</field>
+        <field name="model_id" ref="base.model_ir_model_fields"/>
+        <field name="binding_model_id" ref="base.model_ir_model_fields" />
+        <field name="state">code</field>
+        <field name="code">
+            for r in records:
+                r.update_view()
+        </field>
+    </record>
+
+</odoo>
