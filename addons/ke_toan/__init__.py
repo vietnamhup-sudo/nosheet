@@ -56,32 +56,32 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_276_ids = []
+        group_151_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Kỹ thuật'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_276_ids)], 'is_custom': True}
-        if menu_275:
-            menu_domain.append(('parent_id', '=', menu_275.id))
-            menu_create_domain['parent_id'] = menu_275.id
-        menu_276 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_276:
-            menu_276 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_151_ids)], 'is_custom': True}
+        if menu_150:
+            menu_domain.append(('parent_id', '=', menu_150.id))
+            menu_create_domain['parent_id'] = menu_150.id
+        menu_151 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_151:
+            menu_151 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Công ty', 'sequence': 4, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_276.id if menu_276 else False
+        menu_vals['parent_id'] = menu_151.id if menu_151 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -261,21 +261,21 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Danh mục hàng hoá', 'sequence': 1, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_275.id if menu_275 else False
+        menu_vals['parent_id'] = menu_150.id if menu_150 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -402,43 +402,43 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_279_ids = []
+        group_154_ids = []
 
-        group_276_ids = []
+        group_151_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Kỹ thuật'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_276_ids)], 'is_custom': True}
-        if menu_275:
-            menu_domain.append(('parent_id', '=', menu_275.id))
-            menu_create_domain['parent_id'] = menu_275.id
-        menu_276 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_276:
-            menu_276 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_151_ids)], 'is_custom': True}
+        if menu_150:
+            menu_domain.append(('parent_id', '=', menu_150.id))
+            menu_create_domain['parent_id'] = menu_150.id
+        menu_151 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_151:
+            menu_151 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Giấy tờ'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Giấy tờ', 'sequence': 8, 'group_ids': [(6, 0, group_279_ids)], 'is_custom': True}
-        if menu_276:
-            menu_domain.append(('parent_id', '=', menu_276.id))
-            menu_create_domain['parent_id'] = menu_276.id
-        menu_279 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_279:
-            menu_279 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Giấy tờ', 'sequence': 8, 'group_ids': [(6, 0, group_154_ids)], 'is_custom': True}
+        if menu_151:
+            menu_domain.append(('parent_id', '=', menu_151.id))
+            menu_create_domain['parent_id'] = menu_151.id
+        menu_154 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_154:
+            menu_154 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Hoá đơn', 'sequence': 4, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_279.id if menu_279 else False
+        menu_vals['parent_id'] = menu_154.id if menu_154 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -519,43 +519,43 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_279_ids = []
+        group_154_ids = []
 
-        group_276_ids = []
+        group_151_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Kỹ thuật'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_276_ids)], 'is_custom': True}
-        if menu_275:
-            menu_domain.append(('parent_id', '=', menu_275.id))
-            menu_create_domain['parent_id'] = menu_275.id
-        menu_276 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_276:
-            menu_276 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_151_ids)], 'is_custom': True}
+        if menu_150:
+            menu_domain.append(('parent_id', '=', menu_150.id))
+            menu_create_domain['parent_id'] = menu_150.id
+        menu_151 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_151:
+            menu_151 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Giấy tờ'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Giấy tờ', 'sequence': 8, 'group_ids': [(6, 0, group_279_ids)], 'is_custom': True}
-        if menu_276:
-            menu_domain.append(('parent_id', '=', menu_276.id))
-            menu_create_domain['parent_id'] = menu_276.id
-        menu_279 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_279:
-            menu_279 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Giấy tờ', 'sequence': 8, 'group_ids': [(6, 0, group_154_ids)], 'is_custom': True}
+        if menu_151:
+            menu_domain.append(('parent_id', '=', menu_151.id))
+            menu_create_domain['parent_id'] = menu_151.id
+        menu_154 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_154:
+            menu_154 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Hợp đồng', 'sequence': 1, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_279.id if menu_279 else False
+        menu_vals['parent_id'] = menu_154.id if menu_154 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -672,32 +672,32 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_276_ids = []
+        group_151_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Kỹ thuật'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_276_ids)], 'is_custom': True}
-        if menu_275:
-            menu_domain.append(('parent_id', '=', menu_275.id))
-            menu_create_domain['parent_id'] = menu_275.id
-        menu_276 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_276:
-            menu_276 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_151_ids)], 'is_custom': True}
+        if menu_150:
+            menu_domain.append(('parent_id', '=', menu_150.id))
+            menu_create_domain['parent_id'] = menu_150.id
+        menu_151 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_151:
+            menu_151 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Kho hàng', 'sequence': 5, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_276.id if menu_276 else False
+        menu_vals['parent_id'] = menu_151.id if menu_151 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -778,21 +778,21 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Mua bán hàng hoá', 'sequence': 2, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_275.id if menu_275 else False
+        menu_vals['parent_id'] = menu_150.id if menu_150 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -994,21 +994,21 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Nghiệp vụ khác', 'sequence': 4, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_275.id if menu_275 else False
+        menu_vals['parent_id'] = menu_150.id if menu_150 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -1016,7 +1016,7 @@ def post_init_hook(env):
 
         view_group_ids = []
 
-        view_vals = {'name': 'x_4b01b3eb8ec04fff8d7a74437491f315.form', 'model': 'x_4b01b3eb8ec04fff8d7a74437491f315', 'arch_base': '<form>\n    <header/>\n    <sheet>\n        <group>\n            <field name="x_name"/>\n            <field name="x_ngay_thang"/>\n            <field name="x_cong_ty"/>\n            <field name="x_ghi_chu"/>\n        </group>\n        <notebook>\n            <page string="Items" name="x_items">\n                <field name="x_items">\n                    <list editable="bottom">\n                        <field name="x_name" optional="show"/>\n                        <field name="x_ngay_thang" optional="show" readonly="1"/>\n                        <field name="x_tai_khoan" optional="show"/>\n                        <field name="x_debit" optional="show"/>\n                        <field name="x_credit" optional="show"/>\n                        <field name="x_balance" optional="hide"/>\n                        <field name="x_loai_chung_tu" optional="hide"/>\n                        <field name="x_tai_khoan_doi_ung" optional="hide"/>\n                        <field name="x_doi_tac" optional="hide"/>\n                        <field name="x_cong_ty" optional="hide"/>\n                        <field name="x_parent_account" optional="hide"/>\n                        <field name="x_root_type" optional="hide"/>\n                        <field name="x_report_type" optional="hide"/>\n                        <field name="x_account_type" optional="hide"/>\n                        <field name="x_ghi_chu" optional="show"/>\n                        <field name="x_nghiep_vu_khac" optional="hide"/>\n                    </list>\n                </field>\n            </page>\n        </notebook>\n    </sheet>\n    <chatter/>\n</form>', 'mode': 'primary', 'priority': 16, 'active': True, 'type': 'form'}
+        view_vals = {'name': 'x_4b01b3eb8ec04fff8d7a74437491f315.form', 'model': 'x_4b01b3eb8ec04fff8d7a74437491f315', 'arch_base': '<form>\n    <header/>\n    <sheet>\n        <group>\n            <field name="x_name"/>\n            <field name="x_ngay_thang"/>\n            <field name="x_cong_ty"/>\n            <field name="x_ghi_chu"/>\n        </group>\n        <notebook>\n            <page string="Items" name="x_items">\n                <field name="x_items">\n                    <list editable="bottom">\n                        <field name="x_name" optional="hide"/>\n                        <field name="x_ngay_thang" optional="hide" readonly="1"/>\n                        <field name="x_tai_khoan" optional="show"/>\n                        <field name="x_debit" optional="show"/>\n                        <field name="x_credit" optional="show"/>\n                        <field name="x_balance" optional="hide"/>\n                        <field name="x_loai_chung_tu" optional="hide"/>\n                        <field name="x_tai_khoan_doi_ung" optional="hide"/>\n                        <field name="x_doi_tac" optional="hide"/>\n                        <field name="x_cong_ty" optional="hide"/>\n                        <field name="x_parent_account" optional="hide"/>\n                        <field name="x_root_type" optional="hide"/>\n                        <field name="x_report_type" optional="hide"/>\n                        <field name="x_account_type" optional="hide"/>\n                        <field name="x_ghi_chu" optional="show"/>\n                        <field name="x_nghiep_vu_khac" optional="hide"/>\n                    </list>\n                </field>\n            </page>\n        </notebook>\n    </sheet>\n    <chatter/>\n</form>', 'mode': 'primary', 'priority': 16, 'active': True, 'type': 'form'}
         view_vals['group_ids'] = [(6, 0, view_group_ids)]
         view_vals['model_id'] = model_id.id
         views_payloads.append(view_vals)
@@ -1125,43 +1125,43 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_279_ids = []
+        group_154_ids = []
 
-        group_276_ids = []
+        group_151_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Kỹ thuật'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_276_ids)], 'is_custom': True}
-        if menu_275:
-            menu_domain.append(('parent_id', '=', menu_275.id))
-            menu_create_domain['parent_id'] = menu_275.id
-        menu_276 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_276:
-            menu_276 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_151_ids)], 'is_custom': True}
+        if menu_150:
+            menu_domain.append(('parent_id', '=', menu_150.id))
+            menu_create_domain['parent_id'] = menu_150.id
+        menu_151 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_151:
+            menu_151 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Giấy tờ'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Giấy tờ', 'sequence': 8, 'group_ids': [(6, 0, group_279_ids)], 'is_custom': True}
-        if menu_276:
-            menu_domain.append(('parent_id', '=', menu_276.id))
-            menu_create_domain['parent_id'] = menu_276.id
-        menu_279 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_279:
-            menu_279 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Giấy tờ', 'sequence': 8, 'group_ids': [(6, 0, group_154_ids)], 'is_custom': True}
+        if menu_151:
+            menu_domain.append(('parent_id', '=', menu_151.id))
+            menu_create_domain['parent_id'] = menu_151.id
+        menu_154 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_154:
+            menu_154 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Nhật ký thanh toán', 'sequence': 5, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_279.id if menu_279 else False
+        menu_vals['parent_id'] = menu_154.id if menu_154 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -1300,43 +1300,43 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_279_ids = []
+        group_154_ids = []
 
-        group_276_ids = []
+        group_151_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Kỹ thuật'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_276_ids)], 'is_custom': True}
-        if menu_275:
-            menu_domain.append(('parent_id', '=', menu_275.id))
-            menu_create_domain['parent_id'] = menu_275.id
-        menu_276 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_276:
-            menu_276 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_151_ids)], 'is_custom': True}
+        if menu_150:
+            menu_domain.append(('parent_id', '=', menu_150.id))
+            menu_create_domain['parent_id'] = menu_150.id
+        menu_151 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_151:
+            menu_151 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Giấy tờ'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Giấy tờ', 'sequence': 8, 'group_ids': [(6, 0, group_279_ids)], 'is_custom': True}
-        if menu_276:
-            menu_domain.append(('parent_id', '=', menu_276.id))
-            menu_create_domain['parent_id'] = menu_276.id
-        menu_279 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_279:
-            menu_279 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Giấy tờ', 'sequence': 8, 'group_ids': [(6, 0, group_154_ids)], 'is_custom': True}
+        if menu_151:
+            menu_domain.append(('parent_id', '=', menu_151.id))
+            menu_create_domain['parent_id'] = menu_151.id
+        menu_154 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_154:
+            menu_154 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Phiếu kho', 'sequence': 3, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_279.id if menu_279 else False
+        menu_vals['parent_id'] = menu_154.id if menu_154 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -1469,32 +1469,32 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_287_ids = []
+        group_162_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Báo cáo'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Báo cáo', 'sequence': 7, 'group_ids': [(6, 0, group_287_ids)], 'is_custom': True}
-        if menu_275:
-            menu_domain.append(('parent_id', '=', menu_275.id))
-            menu_create_domain['parent_id'] = menu_275.id
-        menu_287 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_287:
-            menu_287 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Báo cáo', 'sequence': 7, 'group_ids': [(6, 0, group_162_ids)], 'is_custom': True}
+        if menu_150:
+            menu_domain.append(('parent_id', '=', menu_150.id))
+            menu_create_domain['parent_id'] = menu_150.id
+        menu_162 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_162:
+            menu_162 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Báo cáo hàng hoá', 'sequence': 10, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_287.id if menu_287 else False
+        menu_vals['parent_id'] = menu_162.id if menu_162 else False
         env['ir.ui.menu'].create(menu_vals)
 
         action_group_ids = []
@@ -1505,43 +1505,43 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_289_ids = []
+        group_164_ids = []
 
-        group_276_ids = []
+        group_151_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Kỹ thuật'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_276_ids)], 'is_custom': True}
-        if menu_275:
-            menu_domain.append(('parent_id', '=', menu_275.id))
-            menu_create_domain['parent_id'] = menu_275.id
-        menu_276 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_276:
-            menu_276 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_151_ids)], 'is_custom': True}
+        if menu_150:
+            menu_domain.append(('parent_id', '=', menu_150.id))
+            menu_create_domain['parent_id'] = menu_150.id
+        menu_151 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_151:
+            menu_151 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Sổ cái'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Sổ cái', 'sequence': 9, 'group_ids': [(6, 0, group_289_ids)], 'is_custom': True}
-        if menu_276:
-            menu_domain.append(('parent_id', '=', menu_276.id))
-            menu_create_domain['parent_id'] = menu_276.id
-        menu_289 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_289:
-            menu_289 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Sổ cái', 'sequence': 9, 'group_ids': [(6, 0, group_164_ids)], 'is_custom': True}
+        if menu_151:
+            menu_domain.append(('parent_id', '=', menu_151.id))
+            menu_create_domain['parent_id'] = menu_151.id
+        menu_164 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_164:
+            menu_164 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Sổ cái kho', 'sequence': 10, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_289.id if menu_289 else False
+        menu_vals['parent_id'] = menu_164.id if menu_164 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -1756,32 +1756,32 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_287_ids = []
+        group_162_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Báo cáo'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Báo cáo', 'sequence': 7, 'group_ids': [(6, 0, group_287_ids)], 'is_custom': True}
-        if menu_275:
-            menu_domain.append(('parent_id', '=', menu_275.id))
-            menu_create_domain['parent_id'] = menu_275.id
-        menu_287 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_287:
-            menu_287 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Báo cáo', 'sequence': 7, 'group_ids': [(6, 0, group_162_ids)], 'is_custom': True}
+        if menu_150:
+            menu_domain.append(('parent_id', '=', menu_150.id))
+            menu_create_domain['parent_id'] = menu_150.id
+        menu_162 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_162:
+            menu_162 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Báo cáo tổng hợp', 'sequence': 10, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_287.id if menu_287 else False
+        menu_vals['parent_id'] = menu_162.id if menu_162 else False
         env['ir.ui.menu'].create(menu_vals)
 
         action_group_ids = []
@@ -1792,43 +1792,43 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_289_ids = []
+        group_164_ids = []
 
-        group_276_ids = []
+        group_151_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Kỹ thuật'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_276_ids)], 'is_custom': True}
-        if menu_275:
-            menu_domain.append(('parent_id', '=', menu_275.id))
-            menu_create_domain['parent_id'] = menu_275.id
-        menu_276 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_276:
-            menu_276 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_151_ids)], 'is_custom': True}
+        if menu_150:
+            menu_domain.append(('parent_id', '=', menu_150.id))
+            menu_create_domain['parent_id'] = menu_150.id
+        menu_151 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_151:
+            menu_151 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Sổ cái'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Sổ cái', 'sequence': 9, 'group_ids': [(6, 0, group_289_ids)], 'is_custom': True}
-        if menu_276:
-            menu_domain.append(('parent_id', '=', menu_276.id))
-            menu_create_domain['parent_id'] = menu_276.id
-        menu_289 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_289:
-            menu_289 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Sổ cái', 'sequence': 9, 'group_ids': [(6, 0, group_164_ids)], 'is_custom': True}
+        if menu_151:
+            menu_domain.append(('parent_id', '=', menu_151.id))
+            menu_create_domain['parent_id'] = menu_151.id
+        menu_164 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_164:
+            menu_164 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Sổ cái kế toán', 'sequence': 10, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_289.id if menu_289 else False
+        menu_vals['parent_id'] = menu_164.id if menu_164 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -2065,32 +2065,32 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_276_ids = []
+        group_151_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Kỹ thuật'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_276_ids)], 'is_custom': True}
-        if menu_275:
-            menu_domain.append(('parent_id', '=', menu_275.id))
-            menu_create_domain['parent_id'] = menu_275.id
-        menu_276 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_276:
-            menu_276 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_151_ids)], 'is_custom': True}
+        if menu_150:
+            menu_domain.append(('parent_id', '=', menu_150.id))
+            menu_create_domain['parent_id'] = menu_150.id
+        menu_151 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_151:
+            menu_151 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Tài khoản', 'sequence': 6, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_276.id if menu_276 else False
+        menu_vals['parent_id'] = menu_151.id if menu_151 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -2279,21 +2279,21 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Xuất nhập kho', 'sequence': 3, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_275.id if menu_275 else False
+        menu_vals['parent_id'] = menu_150.id if menu_150 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -2459,43 +2459,43 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_279_ids = []
+        group_154_ids = []
 
-        group_276_ids = []
+        group_151_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Kỹ thuật'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_276_ids)], 'is_custom': True}
-        if menu_275:
-            menu_domain.append(('parent_id', '=', menu_275.id))
-            menu_create_domain['parent_id'] = menu_275.id
-        menu_276 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_276:
-            menu_276 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_151_ids)], 'is_custom': True}
+        if menu_150:
+            menu_domain.append(('parent_id', '=', menu_150.id))
+            menu_create_domain['parent_id'] = menu_150.id
+        menu_151 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_151:
+            menu_151 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Giấy tờ'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Giấy tờ', 'sequence': 8, 'group_ids': [(6, 0, group_279_ids)], 'is_custom': True}
-        if menu_276:
-            menu_domain.append(('parent_id', '=', menu_276.id))
-            menu_create_domain['parent_id'] = menu_276.id
-        menu_279 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_279:
-            menu_279 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Giấy tờ', 'sequence': 8, 'group_ids': [(6, 0, group_154_ids)], 'is_custom': True}
+        if menu_151:
+            menu_domain.append(('parent_id', '=', menu_151.id))
+            menu_create_domain['parent_id'] = menu_151.id
+        menu_154 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_154:
+            menu_154 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Đối tác', 'sequence': 2, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_279.id if menu_279 else False
+        menu_vals['parent_id'] = menu_154.id if menu_154 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -2576,43 +2576,43 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_296_ids = []
+        group_171_ids = []
 
-        group_276_ids = []
+        group_151_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Kỹ thuật'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_276_ids)], 'is_custom': True}
-        if menu_275:
-            menu_domain.append(('parent_id', '=', menu_275.id))
-            menu_create_domain['parent_id'] = menu_275.id
-        menu_276 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_276:
-            menu_276 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_151_ids)], 'is_custom': True}
+        if menu_150:
+            menu_domain.append(('parent_id', '=', menu_150.id))
+            menu_create_domain['parent_id'] = menu_150.id
+        menu_151 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_151:
+            menu_151 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Popup'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Popup', 'sequence': 10, 'group_ids': [(6, 0, group_296_ids)], 'is_custom': True}
-        if menu_276:
-            menu_domain.append(('parent_id', '=', menu_276.id))
-            menu_create_domain['parent_id'] = menu_276.id
-        menu_296 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_296:
-            menu_296 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Popup', 'sequence': 10, 'group_ids': [(6, 0, group_171_ids)], 'is_custom': True}
+        if menu_151:
+            menu_domain.append(('parent_id', '=', menu_151.id))
+            menu_create_domain['parent_id'] = menu_151.id
+        menu_171 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_171:
+            menu_171 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Form báo cáo kho', 'sequence': 10, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_296.id if menu_296 else False
+        menu_vals['parent_id'] = menu_171.id if menu_171 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -2620,7 +2620,7 @@ def post_init_hook(env):
 
         view_group_ids = []
 
-        view_vals = {'name': 'x_176bc4d70e5c4c4cb919046b1475cec6.form', 'model': 'x_176bc4d70e5c4c4cb919046b1475cec6', 'arch_base': '<form>\n    <header/>\n    <sheet>\n        <group>\n            <field name="x_name" invisible="1"/>\n            <field name="x_tu_ngay"/>\n            <field name="x_den_ngay"/>\n        </group>\n        <notebook/>\n        <footer>\n            <button name="1" type="action" string="Xác nhận" class="btn-primary"/>\n            <button special="cancel" string="Huỷ" class="btn-secondary"/>\n        </footer>\n    </sheet>\n    <chatter/>\n</form>', 'mode': 'primary', 'priority': 16, 'active': True, 'type': 'form'}
+        view_vals = {'name': 'x_176bc4d70e5c4c4cb919046b1475cec6.form', 'model': 'x_176bc4d70e5c4c4cb919046b1475cec6', 'arch_base': '<form>\n    <header />\n    <sheet>\n        <group>\n            <field name="x_name" invisible="1" />\n            <field name="x_tu_ngay" />\n            <field name="x_den_ngay" />\n        </group>\n        <notebook />\n    </sheet>\n    <chatter />\n</form>', 'mode': 'primary', 'priority': 16, 'active': True, 'type': 'form'}
         view_vals['group_ids'] = [(6, 0, view_group_ids)]
         view_vals['model_id'] = model_id.id
         views_payloads.append(view_vals)
@@ -2711,43 +2711,43 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_296_ids = []
+        group_171_ids = []
 
-        group_276_ids = []
+        group_151_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Kỹ thuật'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_276_ids)], 'is_custom': True}
-        if menu_275:
-            menu_domain.append(('parent_id', '=', menu_275.id))
-            menu_create_domain['parent_id'] = menu_275.id
-        menu_276 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_276:
-            menu_276 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_151_ids)], 'is_custom': True}
+        if menu_150:
+            menu_domain.append(('parent_id', '=', menu_150.id))
+            menu_create_domain['parent_id'] = menu_150.id
+        menu_151 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_151:
+            menu_151 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Popup'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Popup', 'sequence': 10, 'group_ids': [(6, 0, group_296_ids)], 'is_custom': True}
-        if menu_276:
-            menu_domain.append(('parent_id', '=', menu_276.id))
-            menu_create_domain['parent_id'] = menu_276.id
-        menu_296 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_296:
-            menu_296 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Popup', 'sequence': 10, 'group_ids': [(6, 0, group_171_ids)], 'is_custom': True}
+        if menu_151:
+            menu_domain.append(('parent_id', '=', menu_151.id))
+            menu_create_domain['parent_id'] = menu_151.id
+        menu_171 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_171:
+            menu_171 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Form báo cáo tổng hợp', 'sequence': 10, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_296.id if menu_296 else False
+        menu_vals['parent_id'] = menu_171.id if menu_171 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -2755,7 +2755,7 @@ def post_init_hook(env):
 
         view_group_ids = []
 
-        view_vals = {'name': 'x_5a4a212c55a341b1a0e0e90a99886031.form', 'model': 'x_5a4a212c55a341b1a0e0e90a99886031', 'arch_base': '<form>\n    <header/>\n    <sheet>\n        <group>\n            <field name="x_name" invisible="1"/>\n            <field name="x_tu_ngay"/>\n            <field name="x_den_ngay"/>\n        </group>\n        <notebook/>\n        <footer>\n            <button name="1" type="action" string="Xác nhận" class="btn-primary"/>\n            <button special="cancel" string="Huỷ" class="btn-secondary"/>\n        </footer>\n    </sheet>\n    <chatter/>\n</form>', 'mode': 'primary', 'priority': 16, 'active': True, 'type': 'form'}
+        view_vals = {'name': 'x_5a4a212c55a341b1a0e0e90a99886031.form', 'model': 'x_5a4a212c55a341b1a0e0e90a99886031', 'arch_base': '<form>\n    <header />\n    <sheet>\n        <group>\n            <field name="x_name" invisible="1" />\n            <field name="x_tu_ngay" />\n            <field name="x_den_ngay" />\n        </group>\n        <notebook />\n    </sheet>\n    <chatter />\n</form>', 'mode': 'primary', 'priority': 16, 'active': True, 'type': 'form'}
         view_vals['group_ids'] = [(6, 0, view_group_ids)]
         view_vals['model_id'] = model_id.id
         views_payloads.append(view_vals)
@@ -2846,43 +2846,43 @@ def post_init_hook(env):
 
         menu_group_ids = []
 
-        group_296_ids = []
+        group_171_ids = []
 
-        group_276_ids = []
+        group_151_ids = []
 
-        group_275_ids = []
+        group_150_ids = []
 
         menu_domain = [('name', '=', 'Kế toán'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_275_ids)], 'is_custom': True}
+        menu_create_domain = {'name': 'Kế toán', 'sequence': 10, 'group_ids': [(6, 0, group_150_ids)], 'is_custom': True}
         if False:
             menu_domain.append(('parent_id', '=', False.id))
             menu_create_domain['parent_id'] = False.id
-        menu_275 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_275:
-            menu_275 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_150 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_150:
+            menu_150 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Kỹ thuật'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_276_ids)], 'is_custom': True}
-        if menu_275:
-            menu_domain.append(('parent_id', '=', menu_275.id))
-            menu_create_domain['parent_id'] = menu_275.id
-        menu_276 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_276:
-            menu_276 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Kỹ thuật', 'sequence': 10, 'group_ids': [(6, 0, group_151_ids)], 'is_custom': True}
+        if menu_150:
+            menu_domain.append(('parent_id', '=', menu_150.id))
+            menu_create_domain['parent_id'] = menu_150.id
+        menu_151 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_151:
+            menu_151 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_domain = [('name', '=', 'Popup'), ('is_custom', '=', True)]
-        menu_create_domain = {'name': 'Popup', 'sequence': 10, 'group_ids': [(6, 0, group_296_ids)], 'is_custom': True}
-        if menu_276:
-            menu_domain.append(('parent_id', '=', menu_276.id))
-            menu_create_domain['parent_id'] = menu_276.id
-        menu_296 = env['ir.ui.menu'].search(menu_domain, limit=1)
-        if not menu_296:
-            menu_296 = env['ir.ui.menu'].create(menu_create_domain)
+        menu_create_domain = {'name': 'Popup', 'sequence': 10, 'group_ids': [(6, 0, group_171_ids)], 'is_custom': True}
+        if menu_151:
+            menu_domain.append(('parent_id', '=', menu_151.id))
+            menu_create_domain['parent_id'] = menu_151.id
+        menu_171 = env['ir.ui.menu'].search(menu_domain, limit=1)
+        if not menu_171:
+            menu_171 = env['ir.ui.menu'].create(menu_create_domain)
 
         menu_vals = {'name': 'Form thanh toán', 'sequence': 10, 'is_custom': True}
         menu_vals['action'] = f"ir.actions.act_window,{action_id.id}"
         menu_vals['group_ids'] = [(6, 0, menu_group_ids)]
-        menu_vals['parent_id'] = menu_296.id if menu_296 else False
+        menu_vals['parent_id'] = menu_171.id if menu_171 else False
         env['ir.ui.menu'].create(menu_vals)
 
         
@@ -2890,7 +2890,7 @@ def post_init_hook(env):
 
         view_group_ids = []
 
-        view_vals = {'name': 'x_657e8bcb071e4f44a8aa9845fbdce258.form', 'model': 'x_657e8bcb071e4f44a8aa9845fbdce258', 'arch_base': '<form>\n    <header/>\n    <sheet>\n        <group>\n            <field name="x_name" invisible="1"/>\n            <field name="x_ngay_thang"/>\n            <field name="x_so_tien"/>\n            <field name="x_loai_thanh_toan"/>\n            <field name="x_chuc_nang"/>\n            <field name="x_hop_dong"/>\n        </group>\n        <notebook/>\n        <footer>\n            <button name="1" type="action" string="Xác nhận" class="btn-primary"/>\n            <button special="cancel" string="Huỷ" class="btn-secondary"/>\n        </footer>\n    </sheet>\n    <chatter/>\n</form>', 'mode': 'primary', 'priority': 16, 'active': True, 'type': 'form'}
+        view_vals = {'name': 'x_657e8bcb071e4f44a8aa9845fbdce258.form', 'model': 'x_657e8bcb071e4f44a8aa9845fbdce258', 'arch_base': '<form>\n    <header />\n    <sheet>\n        <group>\n            <field name="x_name" invisible="1" />\n            <field name="x_ngay_thang" />\n            <field name="x_so_tien" />\n            <field name="x_loai_thanh_toan" />\n            <field name="x_chuc_nang" />\n            <field name="x_hop_dong" />\n        </group>\n        <notebook />\n    </sheet>\n    <chatter />\n</form>', 'mode': 'primary', 'priority': 16, 'active': True, 'type': 'form'}
         view_vals['group_ids'] = [(6, 0, view_group_ids)]
         view_vals['model_id'] = model_id.id
         views_payloads.append(view_vals)
@@ -3207,7 +3207,7 @@ def post_init_hook(env):
 
     sequence_id = False
 
-    action_vals = {'name': 'Tạo sổ cái', 'sequence': 6, 'state': 'code', 'code': 'x_so_luong = record.x_so_luong\n\nif record.x_muc_dich == "Xuất":\n    x_so_luong = -record.x_so_luong\n\nCREATE_OR_WRITE("Sổ cái kho", "x_loai_chung_tu, x_kho_hang", {\n    "x_loai_chung_tu": REF_ID,\n    "x_kho_hang": record.x_kho_hang.id,\n    "x_ngay_thang": record.x_ngay_thang,\n    "x_so_luong": x_so_luong,\n    "x_gia_von": record.x_gia_von,\n    "x_muc_dich": record.x_muc_dich,\n    "x_hang_hoa": record.x_hang_hoa.id,\n    "x_cong_ty": record.x_cong_ty.id\n}, "x_kho_hang")\n', 'evaluation_type': 'value', 'update_path': False, 'value': False, 'binding_type': 'action'}
+    action_vals = {'name': 'Tạo sổ cái', 'sequence': 6, 'state': 'code', 'code': 'x_so_luong = record.x_so_luong\n\nif record.x_muc_dich == "Xuất":\n    x_so_luong = -record.x_so_luong\n\nCREATE_OR_WRITE("Sổ cái kho", "x_loai_chung_tu", {\n    "x_loai_chung_tu": REF_ID,\n    "x_kho_hang": record.x_kho_hang.id,\n    "x_ngay_thang": record.x_ngay_thang,\n    "x_so_luong": x_so_luong,\n    "x_gia_von": record.x_gia_von,\n    "x_muc_dich": record.x_muc_dich,\n    "x_hang_hoa": record.x_hang_hoa.id,\n    "x_cong_ty": record.x_cong_ty.id\n})\n', 'evaluation_type': 'value', 'update_path': False, 'value': False, 'binding_type': 'action'}
     if sequence_id:
         # field_id = env['ir.model.fields'].search([('name', '=', 'False'), ('model', '=', 'False')], limit=1)
         # action_vals['update_field_id'] = field_id.id if field_id else False
@@ -3233,7 +3233,7 @@ def post_init_hook(env):
 
     sequence_id = False
 
-    action_vals = {'name': 'Execute Code', 'sequence': 5, 'state': 'code', 'code': 'sck_name = "Sổ cái kế toán"\nvoucher_type = REF(model.x_so_hd._name, record.x_so_hd.id)\n\nco_ban = any([r.x_muc_dich == "Xuất" for r in record.x_so_hd.x_items])\nco_mua = any([r.x_muc_dich == "Nhập" for r in record.x_so_hd.x_items])\n\ntong_dinh_gia_ban = sum([r.x_so_luong * r.x_gia_von for r in record.x_so_hd.x_items if r.x_muc_dich == "Xuất"])\ntong_gia_tri_ban = sum([r.x_so_luong * r.x_don_gia for r in record.x_so_hd.x_items if r.x_muc_dich == "Xuất"])\ntong_dinh_gia_mua = sum([r.x_so_luong * r.x_gia_von for r in record.x_so_hd.x_items if r.x_muc_dich == "Nhập"])\ntong_gia_tri_mua = sum([r.x_so_luong * r.x_don_gia for r in record.x_so_hd.x_items if r.x_muc_dich == "Nhập"])\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_account_type, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_ghi_chu": "Xuất",\n    "x_account_type": "Stock",\n    "x_tai_khoan": record.x_so_hd.x_cong_ty.x_tai_khoan_kho.id,\n    "x_tai_khoan_doi_ung": record.x_so_hd.x_cong_ty.x_tai_khoan_chi_phi.x_name,\n\n    "x_ngay_thang": record.x_so_hd.x_ngay_thang,\n    "x_credit": tong_dinh_gia_ban,\n    "x_doi_tac": record.x_so_hd.x_doi_tac.id,\n    "x_cong_ty": record.x_so_hd.x_cong_ty.id\n}, "x_account_type", co_ban)\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_account_type, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_account_type": "Cost of Goods Sold",\n    "x_ghi_chu": "Cost of Goods Sold",\n    "x_tai_khoan": record.x_so_hd.x_cong_ty.x_tai_khoan_chi_phi.id,\n    "x_tai_khoan_doi_ung": record.x_so_hd.x_cong_ty.x_tai_khoan_kho.x_name,\n\n    "x_ngay_thang": record.x_so_hd.x_ngay_thang,\n    "x_debit": tong_dinh_gia_ban,\n    "x_doi_tac": record.x_so_hd.x_doi_tac.id,\n    "x_cong_ty": record.x_so_hd.x_cong_ty.id\n}, "x_account_type", co_ban)\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_account_type, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_account_type": "Receivable",\n    "x_ghi_chu": "Receivable",\n    "x_tai_khoan": record.x_so_hd.x_cong_ty.x_tai_khoan_phai_thu.id,\n    "x_tai_khoan_doi_ung": record.x_so_hd.x_cong_ty.x_tai_khoan_doanh_thu.x_name,\n\n    "x_ngay_thang": record.x_so_hd.x_ngay_thang,\n    "x_debit": tong_gia_tri_ban,\n    "x_doi_tac": record.x_so_hd.x_doi_tac.id,\n    "x_cong_ty": record.x_so_hd.x_cong_ty.id\n}, "x_account_type", co_ban)\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_root_type, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_root_type": "Income",\n    "x_ghi_chu": "Income",\n    "x_tai_khoan": record.x_so_hd.x_cong_ty.x_tai_khoan_doanh_thu.id,\n    "x_tai_khoan_doi_ung": record.x_so_hd.x_cong_ty.x_tai_khoan_phai_thu.x_name,\n\n    "x_ngay_thang": record.x_so_hd.x_ngay_thang,\n    "x_credit": tong_gia_tri_ban,\n    "x_doi_tac": record.x_so_hd.x_doi_tac.id,\n    "x_cong_ty": record.x_so_hd.x_cong_ty.id\n}, "x_root_type", co_ban)\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_account_type, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_ghi_chu": "Nhập",\n    "x_account_type": "Stock",\n    "x_tai_khoan": record.x_so_hd.x_cong_ty.x_tai_khoan_kho.id,\n    "x_tai_khoan_doi_ung": record.x_so_hd.x_cong_ty.x_tai_khoan_phai_tra.x_name,\n\n    "x_ngay_thang": record.x_so_hd.x_ngay_thang,\n    "x_debit": tong_dinh_gia_mua,\n    "x_doi_tac": record.x_so_hd.x_doi_tac.id,\n    "x_cong_ty": record.x_so_hd.x_cong_ty.id\n}, "x_account_type", co_mua)\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_account_type, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_account_type": "Payable",\n    "x_ghi_chu": "Payable",\n    "x_tai_khoan": record.x_so_hd.x_cong_ty.x_tai_khoan_phai_tra.id,\n    "x_tai_khoan_doi_ung": record.x_so_hd.x_cong_ty.x_tai_khoan_kho.x_name,\n\n    "x_ngay_thang": record.x_so_hd.x_ngay_thang,\n    "x_credit": tong_dinh_gia_mua,\n    "x_doi_tac": record.x_so_hd.x_doi_tac.id,\n    "x_cong_ty": record.x_so_hd.x_cong_ty.id\n}, "x_account_type", co_mua)\n', 'evaluation_type': 'value', 'update_path': False, 'value': False, 'binding_type': 'action'}
+    action_vals = {'name': 'Execute Code', 'sequence': 5, 'state': 'code', 'code': 'sck_name = "Sổ cái kế toán"\nvoucher_type = REF(model.x_so_hd._name, record.x_so_hd.id)\n\nco_ban = any([r.x_muc_dich == "Xuất" for r in record.x_so_hd.x_items])\nco_mua = any([r.x_muc_dich == "Nhập" for r in record.x_so_hd.x_items])\n\ntong_dinh_gia_ban = sum([r.x_so_luong * r.x_gia_von for r in record.x_so_hd.x_items if r.x_muc_dich == "Xuất"])\ntong_gia_tri_ban = sum([r.x_so_luong * r.x_don_gia for r in record.x_so_hd.x_items if r.x_muc_dich == "Xuất"])\ntong_dinh_gia_mua = sum([r.x_so_luong * r.x_gia_von for r in record.x_so_hd.x_items if r.x_muc_dich == "Nhập"])\ntong_gia_tri_mua = sum([r.x_so_luong * r.x_don_gia for r in record.x_so_hd.x_items if r.x_muc_dich == "Nhập"])\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_ghi_chu": "Xuất",\n    "x_account_type": "Stock",\n    "x_tai_khoan": record.x_so_hd.x_cong_ty.x_tai_khoan_kho.id,\n    "x_tai_khoan_doi_ung": record.x_so_hd.x_cong_ty.x_tai_khoan_chi_phi.x_name,\n\n    "x_ngay_thang": record.x_so_hd.x_ngay_thang,\n    "x_credit": tong_dinh_gia_ban,\n    "x_doi_tac": record.x_so_hd.x_doi_tac.id,\n    "x_cong_ty": record.x_so_hd.x_cong_ty.id\n}, co_ban)\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_ghi_chu": "Cost of Goods Sold",\n    "x_account_type": "Cost of Goods Sold",\n    "x_tai_khoan": record.x_so_hd.x_cong_ty.x_tai_khoan_chi_phi.id,\n    "x_tai_khoan_doi_ung": record.x_so_hd.x_cong_ty.x_tai_khoan_kho.x_name,\n\n    "x_ngay_thang": record.x_so_hd.x_ngay_thang,\n    "x_debit": tong_dinh_gia_ban,\n    "x_doi_tac": record.x_so_hd.x_doi_tac.id,\n    "x_cong_ty": record.x_so_hd.x_cong_ty.id\n}, co_ban)\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_ghi_chu": "Receivable",\n    "x_account_type": "Receivable",\n    "x_tai_khoan": record.x_so_hd.x_cong_ty.x_tai_khoan_phai_thu.id,\n    "x_tai_khoan_doi_ung": record.x_so_hd.x_cong_ty.x_tai_khoan_doanh_thu.x_name,\n\n    "x_ngay_thang": record.x_so_hd.x_ngay_thang,\n    "x_debit": tong_gia_tri_ban,\n    "x_doi_tac": record.x_so_hd.x_doi_tac.id,\n    "x_cong_ty": record.x_so_hd.x_cong_ty.id\n}, co_ban)\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_ghi_chu": "Income",\n    "x_root_type": "Income",\n    "x_tai_khoan": record.x_so_hd.x_cong_ty.x_tai_khoan_doanh_thu.id,\n    "x_tai_khoan_doi_ung": record.x_so_hd.x_cong_ty.x_tai_khoan_phai_thu.x_name,\n\n    "x_ngay_thang": record.x_so_hd.x_ngay_thang,\n    "x_credit": tong_gia_tri_ban,\n    "x_doi_tac": record.x_so_hd.x_doi_tac.id,\n    "x_cong_ty": record.x_so_hd.x_cong_ty.id\n}, co_ban)\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_ghi_chu": "Nhập",\n    "x_account_type": "Stock",\n    "x_tai_khoan": record.x_so_hd.x_cong_ty.x_tai_khoan_kho.id,\n    "x_tai_khoan_doi_ung": record.x_so_hd.x_cong_ty.x_tai_khoan_phai_tra.x_name,\n\n    "x_ngay_thang": record.x_so_hd.x_ngay_thang,\n    "x_debit": tong_dinh_gia_mua,\n    "x_doi_tac": record.x_so_hd.x_doi_tac.id,\n    "x_cong_ty": record.x_so_hd.x_cong_ty.id\n}, co_mua)\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_ghi_chu": "Payable",\n    "x_account_type": "Payable",\n    "x_tai_khoan": record.x_so_hd.x_cong_ty.x_tai_khoan_phai_tra.id,\n    "x_tai_khoan_doi_ung": record.x_so_hd.x_cong_ty.x_tai_khoan_kho.x_name,\n\n    "x_ngay_thang": record.x_so_hd.x_ngay_thang,\n    "x_credit": tong_dinh_gia_mua,\n    "x_doi_tac": record.x_so_hd.x_doi_tac.id,\n    "x_cong_ty": record.x_so_hd.x_cong_ty.id\n}, co_mua)\n', 'evaluation_type': 'value', 'update_path': False, 'value': False, 'binding_type': 'action'}
     if sequence_id:
         # field_id = env['ir.model.fields'].search([('name', '=', 'False'), ('model', '=', 'False')], limit=1)
         # action_vals['update_field_id'] = field_id.id if field_id else False
@@ -3356,6 +3356,9 @@ def post_init_hook(env):
     field_id = env['ir.model.fields'].search([('model_id', '=', 'x_4b01b3eb8ec04fff8d7a74437491f315'), ('name', '=', 'x_ghi_chu')])
     on_change_field_ids.append(field_id.id)
 
+    field_id = env['ir.model.fields'].search([('model_id', '=', 'x_4b01b3eb8ec04fff8d7a74437491f315'), ('name', '=', 'x_items')])
+    on_change_field_ids.append(field_id.id)
+
     field_id = env['ir.model.fields'].search([('model_id', '=', 'x_4b01b3eb8ec04fff8d7a74437491f315'), ('name', '=', 'x_name')])
     on_change_field_ids.append(field_id.id)
 
@@ -3398,7 +3401,7 @@ def post_init_hook(env):
 
     sequence_id = False
 
-    action_vals = {'name': 'Execute Code', 'sequence': 5, 'state': 'code', 'code': 'record.x_items.write({\n    "x_ngay_thang": record.x_ngay_thang,\n    "x_cong_ty": record.x_cong_ty.id,\n    "x_ghi_chu": record.x_ghi_chu\n})\n', 'evaluation_type': 'value', 'update_path': False, 'value': False, 'binding_type': 'action'}
+    action_vals = {'name': 'Execute Code', 'sequence': 5, 'state': 'code', 'code': 'record.x_items.write({\n    "x_ngay_thang": record.x_ngay_thang,\n    "x_cong_ty": record.x_cong_ty.id,\n    "x_ghi_chu": record.x_ghi_chu,\n    "x_loai_chung_tu": REF_ID\n})\n', 'evaluation_type': 'value', 'update_path': False, 'value': False, 'binding_type': 'action'}
     if sequence_id:
         # field_id = env['ir.model.fields'].search([('name', '=', 'False'), ('model', '=', 'False')], limit=1)
         # action_vals['update_field_id'] = field_id.id if field_id else False
@@ -3480,7 +3483,7 @@ def post_init_hook(env):
 
     sequence_id = False
 
-    action_vals = {'name': 'Execute Code', 'sequence': 5, 'state': 'code', 'code': 'sck_name = "Sổ cái kế toán"\nvoucher_type = REF_ID\n\nx_tai_khoan_doi_ung = record.x_cong_ty.x_tai_khoan_tien_mat.x_name\nx_tai_khoan_doi_ung_tt = record.x_cong_ty.x_tai_khoan_phai_thu.x_name\nx_debit_tt = record.x_thanh_toan\nx_credit_tt = 0\n\nif record.x_loai_thanh_toan == "Ngân hàng":\n    x_tai_khoan_doi_ung = record.x_cong_ty.x_tai_khoan_ngan_hang.x_name\nif record.x_mua_ban_hang_hoa.x_muc_dich == "Nhập":\n    x_tai_khoan_doi_ung_tt = record.x_cong_ty.x_tai_khoan_phai_tra.x_name\n    x_debit_tt = 0\n    x_credit_tt = record.x_thanh_toan\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_account_type, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_account_type": "Receivable",\n    "x_ghi_chu": "Receivable",\n    "x_tai_khoan": record.x_mua_ban_hang_hoa.x_cong_ty.x_tai_khoan_phai_thu.id,\n    "x_tai_khoan_doi_ung": x_tai_khoan_doi_ung,\n\n    "x_ngay_thang": record.x_mua_ban_hang_hoa.x_ngay_thang,\n    "x_credit": record.x_thanh_toan,\n    "x_dai_ly": record.x_mua_ban_hang_hoa.x_dai_ly.id,\n    "x_cong_ty": record.x_mua_ban_hang_hoa.x_cong_ty.id\n}, "x_account_type", record.x_mua_ban_hang_hoa.x_muc_dich == "Xuất")\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_account_type, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_account_type": "Payable",\n    "x_ghi_chu": "Payable",\n    "x_tai_khoan": record.x_mua_ban_hang_hoa.x_cong_ty.x_tai_khoan_phai_tra.id,\n    "x_tai_khoan_doi_ung": x_tai_khoan_doi_ung,\n\n    "x_ngay_thang": record.x_mua_ban_hang_hoa.x_ngay_thang,\n    "x_debit": record.x_thanh_toan,\n    "x_dai_ly": record.x_mua_ban_hang_hoa.x_dai_ly.id,\n    "x_cong_ty": record.x_mua_ban_hang_hoa.x_cong_ty.id\n}, "x_account_type", record.x_mua_ban_hang_hoa.x_muc_dich == "Nhập")\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_account_type, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_account_type": "Cash",\n    "x_ghi_chu": "Cash",\n    "x_tai_khoan": record.x_mua_ban_hang_hoa.x_cong_ty.x_tai_khoan_tien_mat.id,\n    "x_tai_khoan_doi_ung": x_tai_khoan_doi_ung_tt,\n\n    "x_ngay_thang": record.x_mua_ban_hang_hoa.x_ngay_thang,\n    "x_debit": x_debit_tt,\n    "x_credit": x_credit_tt,\n    "x_dai_ly": record.x_mua_ban_hang_hoa.x_dai_ly.id,\n    "x_cong_ty": record.x_mua_ban_hang_hoa.x_cong_ty.id\n}, "x_account_type", record.x_loai_thanh_toan == "Tiền mặt")\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_account_type, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_account_type": "Bank",\n    "x_ghi_chu": "Bank",\n    "x_tai_khoan": record.x_mua_ban_hang_hoa.x_cong_ty.x_tai_khoan_ngan_hang.id,\n    "x_tai_khoan_doi_ung": x_tai_khoan_doi_ung_tt,\n\n    "x_ngay_thang": record.x_mua_ban_hang_hoa.x_ngay_thang,\n    "x_debit": x_debit_tt,\n    "x_credit": x_credit_tt,\n    "x_dai_ly": record.x_mua_ban_hang_hoa.x_dai_ly.id,\n    "x_cong_ty": record.x_mua_ban_hang_hoa.x_cong_ty.id\n}, "x_account_type", record.x_loai_thanh_toan == "Ngân hàng")\n', 'evaluation_type': 'value', 'update_path': False, 'value': False, 'binding_type': 'action'}
+    action_vals = {'name': 'Execute Code', 'sequence': 5, 'state': 'code', 'code': 'sck_name = "Sổ cái kế toán"\nvoucher_type = REF_ID\n\nx_tai_khoan_doi_ung = record.x_cong_ty.x_tai_khoan_tien_mat.x_name\nx_tai_khoan_doi_ung_tt = record.x_cong_ty.x_tai_khoan_phai_thu.x_name\nx_debit_tt = record.x_thanh_toan\nx_credit_tt = 0\n\nif record.x_loai_thanh_toan == "Ngân hàng":\n    x_tai_khoan_doi_ung = record.x_cong_ty.x_tai_khoan_ngan_hang.x_name\nif record.x_mua_ban_hang_hoa.x_muc_dich == "Nhập":\n    x_tai_khoan_doi_ung_tt = record.x_cong_ty.x_tai_khoan_phai_tra.x_name\n    x_debit_tt = 0\n    x_credit_tt = record.x_thanh_toan\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_ghi_chu": "Receivable",\n    "x_account_type": "Receivable",\n    "x_tai_khoan": record.x_mua_ban_hang_hoa.x_cong_ty.x_tai_khoan_phai_thu.id,\n    "x_tai_khoan_doi_ung": x_tai_khoan_doi_ung,\n\n    "x_ngay_thang": record.x_mua_ban_hang_hoa.x_ngay_thang,\n    "x_credit": record.x_thanh_toan,\n    "x_dai_ly": record.x_mua_ban_hang_hoa.x_dai_ly.id,\n    "x_cong_ty": record.x_mua_ban_hang_hoa.x_cong_ty.id\n}, record.x_mua_ban_hang_hoa.x_muc_dich == "Xuất")\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_ghi_chu": "Payable",\n    "x_account_type": "Payable",\n    "x_tai_khoan": record.x_mua_ban_hang_hoa.x_cong_ty.x_tai_khoan_phai_tra.id,\n    "x_tai_khoan_doi_ung": x_tai_khoan_doi_ung,\n\n    "x_ngay_thang": record.x_mua_ban_hang_hoa.x_ngay_thang,\n    "x_debit": record.x_thanh_toan,\n    "x_dai_ly": record.x_mua_ban_hang_hoa.x_dai_ly.id,\n    "x_cong_ty": record.x_mua_ban_hang_hoa.x_cong_ty.id\n}, record.x_mua_ban_hang_hoa.x_muc_dich == "Nhập")\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_ghi_chu": "Cash",\n    "x_account_type": "Cash",\n    "x_tai_khoan": record.x_mua_ban_hang_hoa.x_cong_ty.x_tai_khoan_tien_mat.id,\n    "x_tai_khoan_doi_ung": x_tai_khoan_doi_ung_tt,\n\n    "x_ngay_thang": record.x_mua_ban_hang_hoa.x_ngay_thang,\n    "x_debit": x_debit_tt,\n    "x_credit": x_credit_tt,\n    "x_dai_ly": record.x_mua_ban_hang_hoa.x_dai_ly.id,\n    "x_cong_ty": record.x_mua_ban_hang_hoa.x_cong_ty.id\n}, record.x_loai_thanh_toan == "Tiền mặt")\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_ghi_chu", {\n    "x_loai_chung_tu": voucher_type,\n    "x_ghi_chu": "Bank",\n    "x_account_type": "Bank",\n    "x_tai_khoan": record.x_mua_ban_hang_hoa.x_cong_ty.x_tai_khoan_ngan_hang.id,\n    "x_tai_khoan_doi_ung": x_tai_khoan_doi_ung_tt,\n\n    "x_ngay_thang": record.x_mua_ban_hang_hoa.x_ngay_thang,\n    "x_debit": x_debit_tt,\n    "x_credit": x_credit_tt,\n    "x_dai_ly": record.x_mua_ban_hang_hoa.x_dai_ly.id,\n    "x_cong_ty": record.x_mua_ban_hang_hoa.x_cong_ty.id\n}, record.x_loai_thanh_toan == "Ngân hàng")\n', 'evaluation_type': 'value', 'update_path': False, 'value': False, 'binding_type': 'action'}
     if sequence_id:
         # field_id = env['ir.model.fields'].search([('name', '=', 'False'), ('model', '=', 'False')], limit=1)
         # action_vals['update_field_id'] = field_id.id if field_id else False
@@ -3655,32 +3658,6 @@ def post_init_hook(env):
     trigger_field_ids = []
     on_change_field_ids = []
 
-    auto_vals = {'name': 'thiết lập bút toán điều chỉnh chứng từ', 'trigger': 'on_create_or_write', 'filter_pre_domain': False, 'previous_domain': False, 'filter_domain': False, 'description': False}
-    auto_vals['model_id'] = model_id.id
-    auto_vals['trigger_field_ids'] = [(6, 0, trigger_field_ids)]
-    auto_vals['on_change_field_ids'] = [(6, 0, on_change_field_ids)]
-    auto_id = env['base.automation'].create(auto_vals)
-
-    action_group_ids = []
-
-    sequence_id = False
-
-    action_vals = {'name': 'Execute Code', 'sequence': 5, 'state': 'code', 'code': 'ref_id = REF(record.x_nghiep_vu_khac._name, record.x_nghiep_vu_khac.id)\nif record.x_nghiep_vu_khac:\n    record.write({"x_loai_chung_tu": ref_id})\n', 'evaluation_type': 'value', 'update_path': False, 'value': False, 'binding_type': 'action'}
-    if sequence_id:
-        # field_id = env['ir.model.fields'].search([('name', '=', 'False'), ('model', '=', 'False')], limit=1)
-        # action_vals['update_field_id'] = field_id.id if field_id else False
-        action_vals['sequence_id'] = sequence_id.id if sequence_id else False
-    if False:
-        binding_model_id = env['ir.model'].search([('model', '=', 'False')], limit=1)
-        action_vals['binding_model_id'] = binding_model_id.id
-    action_vals['model_id'] = model_id.id
-    action_vals['base_automation_id'] = auto_id.id
-    action_vals['group_ids'] = [(6, 0, action_group_ids)]
-    env['ir.actions.server'].create(action_vals)
-
-    trigger_field_ids = []
-    on_change_field_ids = []
-
     auto_vals = {'name': 'ref', 'trigger': 'on_create', 'filter_pre_domain': False, 'previous_domain': False, 'filter_domain': False, 'description': False}
     auto_vals['model_id'] = model_id.id
     auto_vals['trigger_field_ids'] = [(6, 0, trigger_field_ids)]
@@ -3842,7 +3819,7 @@ def post_init_hook(env):
 
     sequence_id = False
 
-    action_vals = {'name': 'Tạo sổ cái kho', 'sequence': 6, 'state': 'code', 'code': 'sck_name = "Sổ cái kho"\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_kho_hang, x_ghi_chu", {\n    "x_loai_chung_tu": REF_ID,\n    "x_kho_hang": record.x_kho_dich.id,\n    "x_ghi_chu": "Kho đích",\n    "x_ngay_thang": record.x_ngay_thang,\n    "x_so_luong": record.x_so_luong,\n    "x_gia_von": record.x_gia_tri,\n    "x_muc_dich": record.x_muc_dich,\n    "x_hang_hoa": record.x_hang_hoa.id,\n    "x_cong_ty": record.x_cong_ty.id\n}, "x_kho_hang")\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_kho_hang, x_ghi_chu", {\n    "x_loai_chung_tu": REF_ID,\n    "x_kho_hang": record.x_kho_nguon.id,\n    "x_ghi_chu": "Kho nguồn",\n    "x_ngay_thang": record.x_ngay_thang,\n    "x_so_luong": -record.x_so_luong,\n    "x_gia_von": record.x_gia_tri,\n    "x_muc_dich": record.x_muc_dich,\n    "x_hang_hoa": record.x_hang_hoa.id,\n    "x_cong_ty": record.x_cong_ty.id\n}, "x_kho_hang", record.x_muc_dich == "Xuất")\n', 'evaluation_type': 'value', 'update_path': False, 'value': False, 'binding_type': 'action'}
+    action_vals = {'name': 'Tạo sổ cái kho', 'sequence': 6, 'state': 'code', 'code': 'sck_name = "Sổ cái kho"\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_ghi_chu", {\n    "x_loai_chung_tu": REF_ID,\n    "x_ghi_chu": "Kho đích",\n    "x_kho_hang": record.x_kho_dich.id,\n    "x_ngay_thang": record.x_ngay_thang,\n    "x_so_luong": record.x_so_luong,\n    "x_gia_von": record.x_gia_tri,\n    "x_muc_dich": record.x_muc_dich,\n    "x_hang_hoa": record.x_hang_hoa.id,\n    "x_cong_ty": record.x_cong_ty.id\n})\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_ghi_chu", {\n    "x_loai_chung_tu": REF_ID,\n    "x_ghi_chu": "Kho nguồn",\n    "x_kho_hang": record.x_kho_nguon.id,\n    "x_ngay_thang": record.x_ngay_thang,\n    "x_so_luong": -record.x_so_luong,\n    "x_gia_von": record.x_gia_tri,\n    "x_muc_dich": record.x_muc_dich,\n    "x_hang_hoa": record.x_hang_hoa.id,\n    "x_cong_ty": record.x_cong_ty.id\n}, record.x_muc_dich == "Xuất")\n', 'evaluation_type': 'value', 'update_path': False, 'value': False, 'binding_type': 'action'}
     if sequence_id:
         # field_id = env['ir.model.fields'].search([('name', '=', 'False'), ('model', '=', 'False')], limit=1)
         # action_vals['update_field_id'] = field_id.id if field_id else False
@@ -3868,7 +3845,7 @@ def post_init_hook(env):
 
     sequence_id = False
 
-    action_vals = {'name': 'Execute Code', 'sequence': 5, 'state': 'code', 'code': 'sck_name = "Sổ cái kế toán"\n\ntong_dinh_gia = sum([r.x_so_luong * r.x_gia_tri for r in record.x_phieu_kho.x_items])\nreference_id = REF(record.x_phieu_kho._name, record.x_phieu_kho.id)\nnhap_hang = record.x_muc_dich == "Nhập"\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_account_type, x_ghi_chu", {\n    "x_loai_chung_tu": reference_id,\n    "x_tai_khoan": record.x_phieu_kho.x_cong_ty.x_tai_khoan_kho.id,\n    "x_account_type": "Stock",\n    "x_ghi_chu": "Stock",\n    "x_ngay_thang": record.x_phieu_kho.x_ngay_thang,\n    "x_debit": tong_dinh_gia,\n    "x_tai_khoan_doi_ung": record.x_phieu_kho.x_cong_ty.x_tai_khoan_dieu_chinh.x_name,\n    "x_cong_ty": record.x_phieu_kho.x_cong_ty.id\n}, "x_account_type", nhap_hang)\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_account_type, x_ghi_chu", {\n    "x_loai_chung_tu": reference_id,\n    "x_tai_khoan": record.x_phieu_kho.x_cong_ty.x_tai_khoan_dieu_chinh.id,\n    "x_account_type": "Stock Adjustment",\n    "x_ghi_chu": "Stock Adjustment",\n    "x_ngay_thang": record.x_phieu_kho.x_ngay_thang,\n    "x_credit": tong_dinh_gia,\n    "x_tai_khoan_doi_ung": record.x_phieu_kho.x_cong_ty.x_tai_khoan_kho.x_name,\n    "x_cong_ty": record.x_phieu_kho.x_cong_ty.id\n}, "x_account_type", nhap_hang)\n', 'evaluation_type': 'value', 'update_path': False, 'value': False, 'binding_type': 'action'}
+    action_vals = {'name': 'Execute Code', 'sequence': 5, 'state': 'code', 'code': 'sck_name = "Sổ cái kế toán"\n\ntong_dinh_gia = sum([r.x_so_luong * r.x_gia_tri for r in record.x_phieu_kho.x_items])\nreference_id = REF(record.x_phieu_kho._name, record.x_phieu_kho.id)\nnhap_hang = record.x_muc_dich == "Nhập"\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_ghi_chu", {\n    "x_loai_chung_tu": reference_id,\n    "x_ghi_chu": "Stock",\n    "x_tai_khoan": record.x_phieu_kho.x_cong_ty.x_tai_khoan_kho.id,\n    "x_account_type": "Stock",\n    "x_ngay_thang": record.x_phieu_kho.x_ngay_thang,\n    "x_debit": tong_dinh_gia,\n    "x_tai_khoan_doi_ung": record.x_phieu_kho.x_cong_ty.x_tai_khoan_dieu_chinh.x_name,\n    "x_cong_ty": record.x_phieu_kho.x_cong_ty.id\n}, nhap_hang)\n\nCREATE_OR_WRITE(sck_name, "x_loai_chung_tu, x_ghi_chu", {\n    "x_loai_chung_tu": reference_id,\n    "x_ghi_chu": "Stock Adjustment",\n    "x_account_type": "Stock Adjustment",\n    "x_tai_khoan": record.x_phieu_kho.x_cong_ty.x_tai_khoan_dieu_chinh.id,\n    "x_ngay_thang": record.x_phieu_kho.x_ngay_thang,\n    "x_credit": tong_dinh_gia,\n    "x_tai_khoan_doi_ung": record.x_phieu_kho.x_cong_ty.x_tai_khoan_kho.x_name,\n    "x_cong_ty": record.x_phieu_kho.x_cong_ty.id\n}, nhap_hang)\n', 'evaluation_type': 'value', 'update_path': False, 'value': False, 'binding_type': 'action'}
     if sequence_id:
         # field_id = env['ir.model.fields'].search([('name', '=', 'False'), ('model', '=', 'False')], limit=1)
         # action_vals['update_field_id'] = field_id.id if field_id else False

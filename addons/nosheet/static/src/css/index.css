@@ -1,0 +1,9 @@
+.encrypt_list_input {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+
+  cursor: pointer;
+  text-decoration: none;
+  background-color: unset;
+}

@@ -20,6 +20,7 @@ class IrModelFields(models.Model):
     field_description = fields.Char(string='Field Label', default='', required=True, translate=True, tracking=True)
 
     invisible = fields.Boolean("Invisible", default=False)
+    encrypt = fields.Boolean("Encrypt", default=False)
     approval_field = fields.Boolean("Approval Field", default=False)
     sequence = fields.Integer("Sequence", default=1)
     selected_model_id = fields.Many2one(

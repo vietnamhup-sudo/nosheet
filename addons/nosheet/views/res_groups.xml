@@ -108,6 +108,18 @@
         <field name="uuid">uuid_canned_responses</field>
     </record>
 
+    <record id="mail.group_mail_canned_response_admin" model="res.groups">
+        <field name="uuid">uuid_canned_response_admin</field>
+    </record>
+
+    <record id="mail.group_mail_template_editor" model="res.groups">
+        <field name="uuid">uuid_mail_template_editor</field>
+    </record>
+
+    <record id="mail.group_mail_notification_type_inbox" model="res.groups">
+        <field name="uuid">uuid_receive_notifications_in_odoo</field>
+    </record>
+
     <record id="base.res_groups_privilege_contact" model="res.groups.privilege">
         <field name="uuid">uuid_contact</field>
     </record>
@@ -116,9 +128,6 @@
         <field name="uuid">uuid_export</field>
     </record>
 
-    <record id="mail.group_mail_canned_response_admin" model="res.groups">
-        <field name="uuid">uuid_canned_response_admin</field>
-    </record>
 
     <record id="base.group_partner_manager" model="res.groups">
         <field name="uuid">uuid_creation</field>
@@ -140,20 +149,12 @@
         <field name="uuid">uuid_default_access_for_new_users</field>
     </record>
 
-    <record id="mail.group_mail_template_editor" model="res.groups">
-        <field name="uuid">uuid_mail_template_editor</field>
-    </record>
-
     <record id="base.group_multi_company" model="res.groups">
         <field name="uuid">uuid_multi_companies</field>
     </record>
 
     <record id="base.group_multi_currency" model="res.groups">
         <field name="uuid">uuid_multi_currencies</field>
-    </record>
-
-    <record id="mail.group_mail_notification_type_inbox" model="res.groups">
-        <field name="uuid">uuid_receive_notifications_in_odoo</field>
     </record>
 
     <record id="base.group_system" model="res.groups">
@@ -179,4 +180,13 @@
     <record id="base.group_no_one" model="res.groups">
         <field name="uuid">uuid_technical_features</field>
     </record>
+
+    <record id="queue_job.privilege_queue_job" model="res.groups.privilege">
+        <field name="uuid">uuid_privilege_queue_job</field>
+    </record>
+
+    <record id="queue_job.group_queue_job_manager" model="res.groups">
+        <field name="uuid">uuid_group_queue_job_manager</field>
+    </record>
+
 </odoo>

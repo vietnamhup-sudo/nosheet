@@ -40,9 +40,11 @@
                 <t name="action_content" invisible="not model_id">
                     <field name="allowed_states" invisible="1"/> <!-- Used to filter state using selection_badge_with_filter -->
                     <div class="d-flex flex-column">
-                        <label for="state"/>
-                        <field name="state" widget="selection_badge_with_filter" options="{'size': 'sm', 'allowed_selection_field': 'allowed_states'}"/>
+                        <label for="state2"/>
+                        <field name="state2" widget="selection_badge_with_filter" options="{'size': 'sm', 'allowed_selection_field': 'allowed_states'}"/>
                     </div>
+                    <field name="state" invisible="1"/>
+
                     <div class="alert alert-warning" role="alert" invisible="not warning">
                         <i class="fa fa-warning pe-2" title="Warning"/><field class="d-inline" name="warning" nolabel="1"/>
                     </div>
@@ -125,7 +127,7 @@
                                 <li><code>CREATE</code>: lambda model_name=False, data=None: This function creates new records in a model.</li>
                                 <li><code>WRITE</code>: lambda id, data, model_name=False: This function updates existing records in a model.</li>
                                 <li><code>DELETE</code>: lambda model_name=False, domain=None: This function deletes records from a model.</li>
-                                <li><code>CREATE_OR_WRITE</code>: lambda model_name, fields, data, key=False, condition=True:</li>
+                                <li><code>CREATE_OR_WRITE</code>: lambda model_name, keys, data, condition=True:</li>
                                 <li><code>EXPAND_ARRAY</code>: lambda model_name, map_str, domain=False: It reads records from a model and converts them into an expanded array (list of values).</li>
                                 <li><code>ACT_WINDOW</code>: lambda model_name: This function returns the action to open a window for a specific model.</li>
                                 <li><code>UNIQUE_MODEL</code>: lambda name: This function returns a unique model instance based on its name.</li>

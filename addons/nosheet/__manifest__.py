@@ -3,12 +3,13 @@
     "version": "1.0",
     "author": "Hieu",
     "summary": "NoSheet",
-    "depends": ["mail", "base_automation"],
+    "depends": ["mail", "queue_job", "base_automation"],
     "data": [
         "security/role.xml",
         "security/ir.model.access.csv",
         "views/build.xml",
         "views/app.xml",
+        "views/password.xml",
         "views/act_window.xml",
         "views/ir_ui_menu.xml",
         "views/ir_ui_view.xml",
@@ -24,4 +25,6 @@
             "nosheet/static/src/**",
         ],
     },
+    "post_load": "post_load",
+    "post_init_hook": "post_init_hook"
 }

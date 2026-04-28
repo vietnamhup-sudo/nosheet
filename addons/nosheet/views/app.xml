@@ -22,6 +22,10 @@
                         string="Uninstall"
                         invisible="not is_installed"
                         class="btn-primary"/>
+                <button name="log_hash_file"
+                        type="object"
+                        string="Log hash file"
+                        class="btn-primary"/>
             </header>
                 <sheet>
                     <group>

@@ -1,11 +1,9 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 import uuid
-from odoo.fields import Command, Domain
-import xml.etree.ElementTree as ET
 import os
 import unicodedata
-import uuid
+from ..hash_file import build_hash_map
 
 def dash_text(text):
     text = unicodedata.normalize('NFD', text)
@@ -88,6 +86,13 @@ class CustomApp(models.Model):
                 }
             )
         self.menu_id = menu_id.id
+
+    def log_hash_file(self):
+        current = build_hash_map()
+        message = "\n".join(
+            f"{h}  {p}" for p, h in sorted(current.items())
+        )
+        raise ValidationError(f"{message}")
 
     def uninstall_module(self):
         module = self.env['ir.module.module'].search([
@@ -247,9 +252,9 @@ def post_init_hook(env):
 '''
             for user in filter_.user_ids:
                 strs += f'''
-        user_id = env['res.users'].search([('name', '=', '{user.name}')], limit=1)
+        user_id = env['res.users'].search([('login', '=', '{user.login}')], limit=1)
         if not user_id:
-            raise ValidationError('User {user.name} not found, please create it first.')
+            raise ValidationError('User {user.login} not found, please create it first.')
         else:
             filter_user_ids.append(user_id.id)
 '''
@@ -303,9 +308,9 @@ def post_init_hook(env):
 '''
                 for user in filter_.user_ids:
                     strs += f'''
-        user_id = env['res.users'].search([('name', '=', '{user.name}')], limit=1)
+        user_id = env['res.users'].search([('login', '=', '{user.login}')], limit=1)
         if not user_id:
-            raise ValidationError('User {user.name} not found, please create it first.')
+            raise ValidationError('User {user.login} not found, please create it first.')
         else:
             filter_user_ids.append(user_id.id)
 '''
@@ -446,6 +451,9 @@ def post_init_hook(env):
     def create_models():
 '''
         for model in self.model_ids:
+            for view in model.view_ids:
+                view.remove_transient_footer()
+
             new_vals = model.read(['name', 'model', 'state', 'transient', 'is_filter_manual', 'is_mail_thread', 'is_mail_activity'])[0]
             new_vals.pop('id', False)
             strs += f'''
@@ -465,7 +473,7 @@ def post_init_hook(env):
         #prepare fields for model {model.name}
 '''
             for field in model.field_id:
-                new_vals = field.read(['name', 'field_description', 'ttype', 'help', 'sequence', 'relation', 'relation_field', 'relation_table', 'column1', 'column2', 'on_delete', 'domain', 'related', 'depends', 'compute', 'required', 'readonly', 'invisible', 'store', 'index', 'copied', 'tracking', 'approval_field'])[0]
+                new_vals = field.read(['name', 'field_description', 'ttype', 'ttype2', 'help', 'sequence', 'relation', 'relation_field', 'relation_table', 'column1', 'column2', 'on_delete', 'domain', 'related', 'depends', 'compute', 'required', 'readonly', 'invisible', 'store', 'index', 'copied', 'tracking', 'approval_field'])[0]
                 new_vals.pop('id', False)
                 strs += f'''
         groups = []
@@ -476,8 +484,42 @@ def post_init_hook(env):
                 for selection in field.selection_ids:
                     new_vals = selection.read(['sequence', 'value', 'name'])[0]
                     new_vals.pop('id', False)
+
+                    is_valid_user_selection = field.ttype2 == 'user_selection' and bool(selection.selected_user_id)
+                    is_valid_group_selection = field.ttype2 == 'group_selection' and bool(selection.selected_group_id)
+
+                    if is_valid_user_selection:
+                        strs += f'''
+        user_id = env['res.users'].search([('login', '=', '{selection.selected_user_id.login}')], limit=1)
+        if not user_id:
+            raise ValidationError('User {selection.selected_user_id.login} not found, please create it first.')
+'''
+                    if is_valid_group_selection:
+                        group = selection.selected_group_id
+                        group_vals = group.read(['name', 'uuid', 'share', 'sequence', 'api_key_duration', 'comment'])[0]
+                        group_vals.pop('id', False)
+                        privilege_vals = {}
+                        if group.privilege_id:
+                            privilege_vals = group.privilege_id.read(['name', 'uuid', 'placeholder', 'sequence', 'description'])[0]
+                            privilege_vals['category_id'] = group.privilege_id.category_id.id
+                            privilege_vals.pop('id', False)
+                        strs += f'''
+        group_id = env['res.groups'].search([('uuid', '=', '{group.uuid}')], limit=1)
+
+        if not group_id:
+            group_vals = {group_vals}
+            privilege_id = env['res.groups.privilege'].search([('uuid', '=', '{group.privilege_id.uuid}')], limit=1)
+            if {bool(group.privilege_id.uuid)} and not privilege_id:
+                privilege_vals = {privilege_vals}
+                privilege_id = env['res.groups.privilege'].create(privilege_vals)
+            group_vals['privilege_id'] = privilege_id.id if privilege_id else False
+            group_id = env['res.groups'].create(group_vals)
+'''
                     strs += f'''
-        field_vals['selection_vals'].append({new_vals})
+        selection_vals = {new_vals}
+        selection_vals['selected_user_id'] = user_id.id if {is_valid_user_selection} and user_id else False
+        selection_vals['selected_group_id'] = group_id.id if {is_valid_group_selection} and group_id else False
+        field_vals['selection_vals'].append(selection_vals)
 '''
                 for group in field.groups:
                     group_vals = group.read(['name', 'uuid', 'share', 'sequence', 'api_key_duration', 'comment'])[0]
@@ -736,10 +778,10 @@ def post_init_hook(env):
 '''
                 strs += f'''
     sche_vals = {new_sche_vals}
-    if {bool(sche.user_id.name)}:
-        user_id = env['res.users'].search([('name', '=', '{sche.user_id.name}')], limit=1)
+    if {bool(sche.user_id.login)}:
+        user_id = env['res.users'].search([('login', '=', '{sche.user_id.login}')], limit=1)
         if not user_id:
-            raise ValidationError('User {sche.user_id.name} not found, please create it first.')
+            raise ValidationError('User {sche.user_id.login} not found, please create it first.')
         sche_vals['user_id'] = user_id.id
     sche_vals['model_id'] = model_id.id
     sche_vals['group_ids'] = [(6, 0, sche_group_ids)]

@@ -19,12 +19,12 @@ class IrUiView(models.Model):
             return self.update_search_view()
 
     def get_custom_fields(self):
-        one2many = lambda s: s.ttype == "one2many"
+        two_many = lambda s: s.ttype == "one2many" or s.ttype == "many2many"
         field_ids = self.model_id.field_id.filtered(lambda f: f.state == 'manual').sorted(key=lambda self: self.sequence)
-        return field_ids.filtered(lambda s: not one2many(s)), field_ids.filtered(one2many)
+        return field_ids.filtered(lambda s: not two_many(s)), field_ids.filtered(two_many)
 
     def update_list_view(self):
-        normal_field_ids, one2many_fields = self.get_custom_fields()
+        normal_field_ids, two_many = self.get_custom_fields()
 
         atts = {}
         if self.is_editable:
@@ -33,12 +33,15 @@ class IrUiView(models.Model):
         root = ET.Element("list", atts)
 
         for field in normal_field_ids:
-            ET.SubElement(root, "field", {
+            attrs = {
                 "name": field.name,
                 "optional": "show"
-            })
+            }
+            if field.encrypt and field.ttype == "char":
+                attrs['widget'] = "encrypt_char"
+            ET.SubElement(root, "field", attrs)
 
-        for field in one2many_fields:
+        for field in two_many:
             ET.SubElement(root, "field", {
                 "name": field.name,
                 "widget": "many2many_tags",
@@ -50,7 +53,7 @@ class IrUiView(models.Model):
         self.arch_base = new_xml
 
     def update_form_view(self):
-        normal_field_ids, one2many_fields = self.get_custom_fields()
+        normal_field_ids, two_many = self.get_custom_fields()
         field_ids = normal_field_ids.filtered(lambda f: not f.approval_field)
         approval_fields = normal_field_ids.filtered(lambda f: f.approval_field)
 
@@ -76,11 +79,13 @@ class IrUiView(models.Model):
             }
             if field.invisible:
                 attrs["invisible"] = "1"
+            if field.encrypt and field.ttype == "char":
+                attrs['widget'] = "encrypt_char"
             ET.SubElement(group, "field", attrs)
 
         # notebook
         notebook = ET.SubElement(sheet, "notebook")
-        for field in one2many_fields:
+        for field in two_many:
             page = ET.SubElement(notebook, "page", {
                 "string": field.field_description,
                 "name": field.name
@@ -117,7 +122,7 @@ class IrUiView(models.Model):
         self.arch_base = new_xml
 
     def update_search_view(self):
-        normal_field_ids, one2many_fields = self.get_custom_fields()
+        normal_field_ids, two_many = self.get_custom_fields()
 
         root = ET.Element("search")
 

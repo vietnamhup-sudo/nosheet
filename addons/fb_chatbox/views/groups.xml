@@ -1,0 +1,21 @@
+<odoo>
+    <record id="im_livechat.res_groups_privilege_live_chat" model="res.groups.privilege">
+        <field name="uuid">uuid_res_groups_privilege_live_chat</field>
+    </record>
+
+    <record id="im_livechat.im_livechat_group_manager" model="res.groups">
+        <field name="uuid">uuid_im_livechat_group_manager</field>
+    </record>
+
+    <record id="im_livechat.im_livechat_group_user" model="res.groups">
+        <field name="uuid">uuid_im_livechat_group_user</field>
+    </record>
+
+    <record id="spreadsheet_dashboard.res_groups_privilege_dashboard" model="res.groups.privilege">
+        <field name="uuid">uuid_res_groups_privilege_dashboard</field>
+    </record>
+
+    <record id="spreadsheet_dashboard.group_dashboard_manager" model="res.groups">
+        <field name="uuid">uuid_group_dashboard_manager</field>
+    </record>
+</odoo>

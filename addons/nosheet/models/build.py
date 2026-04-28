@@ -44,6 +44,36 @@ class IrModelFields(models.Model):
         domain=[('state', '=', 'manual')]
     )
 
+    selected_user_id = fields.Many2one(
+        'res.users', 
+        string='User',
+    )
+
+    selected_group_id = fields.Many2one(
+        'res.groups', 
+        string='Group',
+    )
+
+    @api.onchange('selected_user_id')
+    def _onchange_selected_user_id(self):
+        for record in self:
+            if record.selected_user_id:
+                record.value = record.selected_user_id.login
+                record.name = record.selected_user_id.login
+            else:
+                record.value = ""
+                record.name = ""
+
+    @api.onchange('selected_group_id')
+    def _onchange_selected_group_id(self):
+        for record in self:
+            if record.selected_group_id:
+                record.value = record.selected_group_id.uuid
+                record.name = record.selected_group_id.full_name
+            else:
+                record.value = ""
+                record.name = ""
+
     @api.onchange('selected_model_id')
     def _onchange_selected_model_id(self):
         for record in self:
@@ -57,7 +87,7 @@ class IrModelFields(models.Model):
     @api.onchange('value')
     def _onchange_value(self):
         for record in self:
-            if record.selected_model_id:
+            if record.selected_model_id or record.selected_user_id or record.selected_group_id:
                 return
 
             if record.value:

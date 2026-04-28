@@ -77,6 +77,8 @@ class IrModelFields(models.Model):
                 ('date', _('date')),
                 ('datetime', _('datetime')),
                 ('selection', _('selection')),
+                ('user_selection', _('User selection')),
+                ('group_selection', _('Group selection')),
                 ('many2one', _('many2one')),
                 ('one2many', _('one2many')),
                 ('many2many', _('many2many')),
@@ -93,7 +95,10 @@ class IrModelFields(models.Model):
     def _onchange_ttype2(self):
         for record in self:
             if record.ttype2:
-                record.ttype = record.ttype2
+                if record.ttype2 in ['user_selection', 'group_selection']:
+                    record.ttype = 'selection'
+                else:
+                    record.ttype = record.ttype2
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -103,8 +108,11 @@ class IrModelFields(models.Model):
         return super(IrModelFields, self).create(vals_list)
 
     def write(self, vals):
-        if "ttype2" in vals and vals['ttype2'] != vals['ttype']:
-            vals['ttype'] = vals['ttype2']
+        if "ttype2" in vals and vals['ttype2'] != vals.get('ttype'):
+            if vals['ttype2'] in ['user_selection', 'group_selection']:
+                vals['ttype'] = 'selection'
+            else:
+                vals['ttype'] = vals['ttype2']
 
         result = super(IrModelFields, self).write(vals)
 
@@ -121,6 +129,47 @@ class IrModelFields(models.Model):
 class IrActionsServer(models.Model):
     _inherit = 'ir.actions.server'
 
+    state2 = fields.Selection([
+        ('object_write', 'Update Record'),
+        ('object_create', 'Create Record'),
+        ('object_copy', 'Duplicate Record'),
+        ('code', 'Execute Code'),
+        ('webhook', 'Send Webhook Notification'),
+        ('multi', 'Multi Actions')], string='Type',
+        required=True, copy=True,
+        help="Type of server action. The following values are available:\n"
+             "- 'Update a Record': update the values of a record\n"
+             "- 'Create Activity': create an activity (Discuss)\n"
+             "- 'Send Email': post a message, a note or send an email (Discuss)\n"
+             "- 'Send SMS': send SMS, log them on documents (SMS)"
+             "- 'Add/Remove Followers': add or remove followers to a record (Discuss)\n"
+             "- 'Create Record': create a new record with new values\n"
+             "- 'Execute Code': a block of Python code that will be executed\n"
+             "- 'Send Webhook Notification': send a POST request to an external system, also known as a Webhook\n"
+             "- 'Multi Actions': define an action that triggers several other server actions\n"
+    )
+
+    @api.onchange('state2')
+    def _onchange_state2(self):
+        for record in self:
+            if record.state2:
+                record.state = record.state2
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if "state" in vals and not vals.get("state2", False):
+                vals['state2'] = vals['state']
+        return super(IrActionsServer, self).create(vals_list)
+
+    def write(self, vals):
+        if "state2" in vals and vals['state2'] != vals['state']:
+            vals['state'] = vals['state2']
+
+        result = super(IrActionsServer, self).write(vals)
+
+        return result
+
     def _get_eval_context(self, action=None):
         eval_context = super()._get_eval_context(action=action)
         record = eval_context.get('record')
@@ -130,16 +179,51 @@ class IrActionsServer(models.Model):
             'CREATE': lambda model_name=False, data=None: self.create_record(data, model_name=model_name),
             'WRITE': lambda id, data, model_name=False: self.write_record(id, data, model_name=model_name),
             "DELETE": lambda model_name, domain=False: self.delete_records(model_name, domain),
-            'CREATE_OR_WRITE': lambda model_name, fields, data, key=False, condition=True: self.create_or_write(model_name, fields, data, key, condition),
+            'CREATE_OR_WRITE': lambda model_name, keys, data, condition=True: self.create_or_write(model_name, keys, data, condition),
             "EXPAND_ARRAY": lambda model_name, map_str, domain=False: self.expand_array(model_name, map_str, domain, record),
             "ACT_WINDOW": lambda model_name: self.get_act_window(model_name),
             "UNIQUE_MODEL": lambda name: self.get_model(name),
             "DISPLAY_SEQUENCE" : lambda: self.display_sequence(record),
             "REF_ID" : f"{record._name},{record.id}" if record else False,
             "REF" : lambda model, id: f"{model},{id}",
+            "SET_APPROVAL_NOTIFICATION" : lambda state: self.set_approval_notification(state, record),
         })
         return eval_context
-    
+
+    def set_approval_notification(self, state, record):
+        model_id = self.model_id
+        approval_field = self.env['ir.model.fields'].search([('model', '=', model_id.model), ('ttype2', 'in', ['user_selection', 'group_selection'])], limit=1)
+        selection_id = self.env['ir.model.fields.selection'].search([('field_id', '=', approval_field.id), ('value', '=', state)], limit=1)
+        partners = False
+
+        if approval_field.ttype2 == 'user_selection':
+            user = selection_id.selected_user_id
+            partners = user.partner_id
+
+        elif approval_field.ttype2 == 'group_selection':
+            users = selection_id.selected_group_id.user_ids
+            partners = users.mapped('partner_id')
+
+        if partners:
+            for p in partners:
+                message = f"Cần {p.name} duyệt {record._description}!"
+                self.env["bus.bus"]._sendone(
+                    p,
+                    "simple_notification",
+                    {
+                        "title": record._description,
+                        "message": message,
+                        "sticky": False,
+                        'type': 'info',
+                    },
+                )
+                record.message_post(
+                    body=message,
+                    partner_ids=p.ids,
+                    message_type='notification',
+                    subtype_xmlid='mail.mt_comment',
+                )
+
     def get_act_window(self, model_name):
         model = self.get_model(model_name)
 
@@ -227,29 +311,15 @@ class IrActionsServer(models.Model):
         model = self.get_model(model_name)
         return model.create(data)
 
-    def create_or_write(self, model_name, fields, values, key=False, condition=True):
+    def create_or_write(self, model_name, keys, values, condition=True):
         model = self.get_model(model_name)
 
         domain = []
-        clear_domain = []
-        for field in fields.split(','):
+        for field in keys.split(','):
             field = field.strip()
             domain.append((field, '=', values.get(field)))
 
-            if not key:
-                continue
-
-            if field in list(map(str.strip, key.split(","))):
-                clear_domain.append((field, '!=', values.get(field)))
-            else:
-                clear_domain.append((field, '=', values.get(field)))
-
         records = model.search(domain)
-        clear_records = model.search(clear_domain)
-
-        if clear_records:
-            clear_records.unlink()
-
         if not condition:
             records.unlink()
         elif records:

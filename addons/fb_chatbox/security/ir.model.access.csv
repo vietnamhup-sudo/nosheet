@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+fb_chatbox.access_facebook_page_for_admin,access_facebook_page_for_admin,fb_chatbox.model_facebook_page,base.group_system,1,1,1,1

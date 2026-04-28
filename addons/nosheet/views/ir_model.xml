@@ -89,12 +89,13 @@
                                     <field name="depends" optional="hide"/>
                                     <field name="compute" optional="show"/>
 
-                                    <field name="selected_model_id" optional="show" context="{'create_views_menu_access': True, 'default_from_app_id': from_app_id}" invisible="ttype not in ['many2one', 'one2many', 'many2many']" readonly="ttype not in ['many2one', 'one2many', 'many2many']" required="ttype in ['many2one', 'one2many', 'many2many']"/>
+                                    <field name="selected_model_id" optional="show" domain="['|', ('model', '=', 'res.currency'), ('state', '=', 'manual')]" context="{'create_views_menu_access': True, 'default_from_app_id': from_app_id}" invisible="ttype not in ['many2one', 'one2many', 'many2many']" readonly="ttype not in ['many2one', 'one2many', 'many2many']" required="ttype in ['many2one', 'one2many', 'many2many']"/>
                                     <field name="selected_field_id" optional="hide" invisible="ttype != 'one2many'" readonly="ttype != 'one2many'" required="ttype == 'one2many'"/>
 
                                     <field name="on_delete" optional="hide" groups="base.group_no_one" invisible="ttype != 'many2one'" readonly="ttype != 'many2one'"/>
                                     <field name="domain" optional="hide" groups="base.group_no_one" invisible="ttype not in ['many2one', 'one2many', 'many2many']" readonly="ttype not in ['many2one', 'one2many', 'many2many']"/>
 
+                                    <field name="encrypt" optional="hide"/>
                                     <field name="required" optional="hide"/>
                                     <field name="readonly" optional="hide"/>
                                     <field name="index" groups="base.group_no_one" optional="hide"/>
@@ -193,6 +194,7 @@
                                 <field name="required"/>
                                 <field name="readonly"/>
                                 <field name="invisible"/>
+                                <field name="encrypt"/>
                                 <field name="approval_field"/>
                                 <field name="tracking"/>
                                 <field name="store" groups="base.group_no_one"/>
@@ -261,8 +263,10 @@
                         <field name="selection_ids">
                             <list editable="bottom">
                                 <field name="sequence" widget="handle"/>
-                                <field name="selected_model_id" column_invisible="parent.ttype == 'selection'"/>
-                                <field name="value" column_invisible="parent.ttype == 'reference'"/>
+                                <field name="selected_model_id" column_invisible="parent.ttype != 'reference'"/>
+                                <field name="selected_user_id" column_invisible="parent.ttype2 != 'user_selection'"/>
+                                <field name="selected_group_id" column_invisible="parent.ttype2 != 'group_selection'"/>
+                                <field name="value" column_invisible="parent.ttype2 != 'selection'"/>
                                 <field name="name"/>
                             </list>
                         </field>

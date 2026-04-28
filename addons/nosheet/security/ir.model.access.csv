@@ -1,5 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 
 nosheet.access_nosheet_build_for_base,access_nosheet_build_for_base,nosheet.model_nosheet_build,base.group_system,1,1,1,1
-
 nosheet.access_nosheet_custom_app_for_base,access_nosheet_custom_app_for_base,nosheet.model_nosheet_custom_app,base.group_system,1,1,1,1
+
+nosheet.access_nosheet_password_for_user,access_nosheet_password_for_user,nosheet.model_nosheet_password,base.group_user,1,1,1,1
